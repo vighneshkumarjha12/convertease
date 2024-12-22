@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - My WebApp{% endblock %}
+
+{% block content %}
+    <style>
+        /* Global styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+        }
+
+        /* Container for the form */
+        .form-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+        }
+
+        /* Container background */
+        .form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 10px;
+            z-index: -1;
+        }
+
+        /* Form Heading */
+        h1 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        /* File input styling */
+        .file-input {
+            width: 100%;
+            padding: 12px;
+            font-size: 1em;
+            border: 2px dashed #4CAF50;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            background-color: #f9f9f9;
+        }
+
+        .file-input:focus {
+            border-color: #2575fc;
+            outline: none;
+        }
+
+        /* Submit button styling */
+        .submit-button {
+            padding: 12px 24px;
+            font-size: 1.2em;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .form-container {
+                width: 100%;
+                padding: 20px;
+            }
+
+            .submit-button {
+                font-size: 1em;
+                padding: 10px 20px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+    <div class="logo-container">
+            
+        <a href="/home" class="logo"><img src="static/diagram-unscreen.gif" alt="Icon" ></a>
+    </div>
+    <div class="form-container">
+        <h1>Convert Images to PDF</h1>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="img" class="file-input" accept="image/*" multiple required>
+            <button type="submit" class="submit-button">Convert to PDF</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}   
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to PDF</title>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Convert Images to PDF</h1>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="img" class="file-input" accept="image/*" multiple required>
+            <button type="submit" class="submit-button">Convert to PDF</button>
+        </form>
+    </div>
+      
+
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to PDF</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; text-align: center; }
+        .form-container { margin-top: 50px; }
+        .file-input { padding: 10px; font-size: 1em; }
+        .submit-button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit-button:hover { background-color: #45a049; }
+    </style>
+</head>
+<body>
+    <h1>Image to PDF</h1>
+    <div class="form-container">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="img" class="file-input" required>
+            <button type="submit" class="submit-button">Convert to PDF</button>
+        </form>
+    </div>
+</body>
+</html>

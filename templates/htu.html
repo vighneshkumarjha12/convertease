@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image and PDF Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        .container {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 900px;
+        }
+        h2 {
+            color: #4CAF50;
+        }
+        .step {
+            display: none;
+        }
+        .step.active {
+            display: block;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .file-input {
+            margin-bottom: 20px;
+        }
+        select, input[type="range"] {
+            padding: 8px;
+            width: 100%;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to the Image & PDF Converter</h1>
+</header>
+
+<div class="container">
+    <div id="step1" class="step active">
+        <h2>Step 1: Upload Your Image or PDF</h2>
+        <p>Select an image or PDF to begin the conversion process.</p>
+        <form id="upload-form" enctype="multipart/form-data">
+            <input type="file" name="file" id="file-input" class="file-input" required>
+            <button type="button" onclick="nextStep(2)">Next Step</button>
+        </form>
+    </div>
+
+    <div id="step2" class="step">
+        <h2>Step 2: Choose Output Format</h2>
+        <p>Select the format to which you want to convert the file.</p>
+        <select id="format-select">
+            <option value="jpg">JPEG</option>
+            <option value="png">PNG</option>
+            <option value="pdf">PDF</option>
+        </select>
+        <button type="button" onclick="nextStep(3)">Next Step</button>
+    </div>
+
+    <div id="step3" class="step">
+        <h2>Step 3: Adjust Settings (Optional)</h2>
+        <p>If you selected an image format, you can adjust the image settings.</p>
+        <label for="brightness">Brightness:</label>
+        <input type="range" id="brightness" min="0" max="100" value="50">
+        <label for="contrast">Contrast:</label>
+        <input type="range" id="contrast" min="0" max="100" value="50">
+        <button type="button" onclick="nextStep(4)">Next Step</button>
+    </div>
+
+    <div id="step4" class="step">
+        <h2>Step 4: Convert & Download</h2>
+        <p>Click the button below to convert your file and download it.</p>
+        <button id="convert-btn" onclick="convertFile()">Convert & Download</button>
+    </div>
+</div>
+
+<script>
+    function nextStep(step) {
+        // Hide current step
+        const currentStep = document.querySelector('.step.active');
+        currentStep.classList.remove('active');
+        
+        // Show next step
+        const nextStep = document.getElementById('step' + step);
+        nextStep.classList.add('active');
+    }
+
+    function convertFile() {
+        // Get the file, format, and settings
+        const file = document.getElementById('file-input').files[0];
+        const format = document.getElementById('format-select').value;
+        const brightness = document.getElementById('brightness').value;
+        const contrast = document.getElementById('contrast').value;
+
+        // Display selected options for the user
+        alert(`File: ${file.name}\nFormat: ${format}\nBrightness: ${brightness}\nContrast: ${contrast}`);
+
+        // You can now integrate with server-side processing to convert the file.
+        // For demo, just show a success message
+        alert('File converted successfully! You can now download it.');
+    }
+</script>
+
+</body>
+</html>

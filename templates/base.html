@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Navbar with Hover and Click Dropdown</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+  <!-- Navbar -->
+  <nav class="bg-gradient-to-r from-black to-blue-500 shadow-lg hover:bg-lightgreen-500 transition duration-300">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        
+        <!-- Hamburger Menu for Mobile -->
+        <div class="flex items-center md:hidden">
+          <button id="menu-btn" class="text-white focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+        </div>
+
+       <!-- Logo Section -->
+      <a href="/" class="flex items-center space-x-2">
+        <img src="{% static 'images/diagram-unscreen.gif' %}" alt="Logo" class="h-12 w-auto">
+        <span class="text-cyan-300">Image Converter</span>
+      </a>
+
+        <!-- Navigation Links -->
+        <div class="hidden md:flex items-center justify-center w-full">
+          <div class="flex space-x-12">
+            <!-- Dropdown for Image Converters -->
+            <div class="relative group">
+              <button id="dropdown-btn" class="text-white hover:text-teal-300 transition duration-300 flex items-center">
+                Image Converters
+                <!-- Dropdown symbol (down arrow) -->
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div id="dropdown-menu" 
+     class="absolute left-0 w-48 mt-2 bg-[#1c3d73] text-white shadow-md rounded-lg opacity-0 
+            transform scale-y-0 transition-all duration-300 ease-in-out hidden group-hover:opacity-100 
+            group-hover:scale-y-100 group-hover:block">
+  <a href="imgtopdf" 
+     class="block px-6 py-3 text-sm font-medium hover:bg-[#284b8a] transition-colors duration-200">
+    Image to PDF
+  </a>
+  <a href="webptopng" 
+     class="block px-6 py-3 text-sm font-medium hover:bg-[#284b8a] transition-colors duration-200">
+    Webp to Png
+  </a>
+  <a href="pngtowebp" 
+     class="block px-6 py-3 text-sm font-medium hover:bg-[#284b8a] transition-colors duration-200">
+   png to Webp
+  </a>
+</div>
+
+            </div>
+
+            <a href="#" class="text-white hover:text-teal-300 transition duration-300">Blog</a>
+            <a href="#" class="text-white hover:text-teal-300 transition duration-300">Features</a>
+            <a href="#" class="text-white hover:text-teal-300 transition duration-300">How to Use</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden flex flex-col items-start space-y-4 py-4">
+        <div class="relative group w-full">
+          <button class="text-white hover:text-teal-300 transition duration-300 w-full text-left px-4">
+            Image Converters
+          </button>
+          <div class="absolute left-0 w-full mt-2 bg-white text-black shadow-lg rounded-lg opacity-0 
+          transform scale-y-0 transition-all duration-300 ease-in-out hidden group-hover:opacity-100 
+          group-hover:scale-y-100 group-hover:block sm:w-auto sm:left-auto sm:mt-0">
+<a href="#" 
+   class="block px-4 py-2 text-sm hover:bg-teal-100 border-b last:border-b-0 sm:border-none sm:px-6 sm:py-3 sm:font-medium">
+  Image to PDF
+</a>
+<a href="#" 
+   class="block px-4 py-2 text-sm hover:bg-teal-100 border-b last:border-b-0 sm:border-none sm:px-6 sm:py-3 sm:font-medium">
+  Image Resizer
+</a>
+<a href="#" 
+   class="block px-4 py-2 text-sm hover:bg-teal-100 sm:border-none sm:px-6 sm:py-3 sm:font-medium">
+  Image Compressor
+</a>
+</div>
+
+        </div>
+        <a href="#" class="text-white hover:text-teal-300 transition duration-300">Blog</a>
+        <a href="#" class="text-white hover:text-teal-300 transition duration-300">Features</a>
+        <a href="#" class="text-white hover:text-teal-300 transition duration-300">How to Use</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Script for Mobile Toggle and Dropdown -->
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const dropdownBtn = document.getElementById('dropdown-btn');
+    const dropdownMenu = document.getElementById('dropdown-menu');
+
+    // Toggle mobile menu visibility
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Toggle dropdown visibility on click
+    dropdownBtn.addEventListener('click', () => {
+      dropdownMenu.classList.toggle('hidden');
+      dropdownMenu.classList.toggle('scale-y-100');
+      dropdownMenu.classList.toggle('opacity-100');
+    });
+
+    // Close dropdown if clicked outside
+    window.addEventListener('click', (e) => {
+      if (!dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        dropdownMenu.classList.add('hidden');
+        dropdownMenu.classList.remove('scale-y-100');
+        dropdownMenu.classList.remove('opacity-100');
+      }
+    });
+  </script>
+
+  <main>
+    {% block content %}
+    <!-- Page-specific content goes here -->
+    {% endblock %}
+  </main>
+
+  <!-- Footer -->
+  {% include "footer.html" %}
+
+</body>
+</html>

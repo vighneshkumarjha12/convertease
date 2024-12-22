@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+<div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8">
+    <!-- Page Title -->
+    <h1 class="text-3xl font-semibold text-[#1c3d73] mb-6 text-center">Convert Images to PDF</h1>
+    <p class="text-gray-600 mb-8 text-center">
+      Upload your images and convert them into a high-quality PDF file in just a few clicks.
+    </p>
+  
+    <!-- File Upload Section -->
+    <div class="bg-gray-50 p-6 border-dashed border-2 border-gray-300 rounded-lg mb-8">
+      <div class="text-center">
+        <p class="text-gray-500 mb-4">Drag and drop your images here or click to upload</p>
+        <label class="cursor-pointer">
+          <input type="file" accept="image/*" multiple class="hidden" id="file-input" />
+          <div class="inline-block px-6 py-2 bg-[#1c3d73] text-white rounded-md hover:bg-[#15315a]">
+            Browse Files
+          </div>
+        </label>
+      </div>
+    </div>
+  
+    <!-- Image Preview Section -->
+    <div id="preview-container" class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8 hidden">
+      <!-- Example placeholder; dynamically updated using JavaScript -->
+    </div>
+  
+    <!-- Convert Button -->
+    <div class="text-center">
+      <button 
+        id="convert-btn" 
+        class="w-full sm:w-auto px-8 py-3 bg-[#1c3d73] text-white text-lg font-medium rounded-md hover:bg-[#15315a] transition">
+        Convert to PDF
+      </button>
+    </div>
+  </div>
+  
+{% endblock %}

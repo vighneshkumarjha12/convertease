@@ -2,28 +2,35 @@ from django.shortcuts import render, HttpResponse
 from PIL import Image
 import img2pdf
 import io
-
+from django.contrib.auth import logout, authenticate, login 
+from datetime import datetime
+from images.models import Contact
+from django.contrib import messages
 def home(request):
-    """Render the home page with links to conversion features."""
     return render(request, 'home.html')
-
 
 
 def services(request):
     return render(request, 'service.html')
-
 def imgtopdf(request):
     """Convert multiple images to PDF format."""
-    if request.method == 'POST':
+    if request.method == 'POST':  # Process only if the request is a POST
         try:
             files = request.FILES.getlist('img')  # Get the list of uploaded files
+            if not files:  # Check if no files are uploaded
+                return HttpResponse("No files selected for conversion.")
+            
             pdf = img2pdf.convert([file.read() for file in files])  # Convert all files to PDF
             response = HttpResponse(pdf, content_type='application/pdf')
             response['Content-Disposition'] = 'attachment; filename="converted.pdf"'
             return response
         except Exception as e:
             return HttpResponse(f"Error: {e}")
+
+    # For GET requests, just render the imgtopdf page
     return render(request, 'imgtopdf.html')
+
+
 
 def jpgtopng(request):
     """Convert multiple JPGs to PNG format."""
@@ -97,3 +104,22 @@ def htu(request):
     return render(request, 'htu.html')
 def services(request):
     return render(request, 'services.html')
+
+
+def blogs(request):
+    return render(request, 'blogs.html')
+
+
+
+def contact(request):
+    if request.method == "POST":
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        desc = request.POST.get('desc')
+        contact = Contact(name=name, email=email, phone=phone, desc=desc, date = datetime.today())
+        contact.save()
+        messages.success(request, 'Your message has been sent!')
+    return render(request, 'contact.html')
+ 
+

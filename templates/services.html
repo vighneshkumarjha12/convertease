@@ -1,55 +1,60 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<!-- Services Section -->
-<section class="py-20 bg-white text-gray-900">
+
+ <!-- Features Section -->
+ <section id="features" class="py-16 bg-white">
     <div class="container mx-auto text-center">
-        <h2 class="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-600 mb-6">Our Services</h2>
-        <p class="text-lg mb-12">We provide cutting-edge tools to help you achieve your goals efficiently and effortlessly.</p>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Service Item 1 -->
-            <div class="service-item bg-white p-8 rounded-lg shadow-2xl hover:scale-105 transform transition-all duration-300 hover:bg-blue-600 hover:text-white hover:shadow-2xl">
-                <img src="staticfiles/pdf.gif" alt="Image to PDF Conversion" class="w-16 mx-auto mb-4">
-                <h3 class="text-2xl font-semibold mb-4">Image to PDF Conversion</h3>
-                <p class="text-sm">Convert multiple image formats (JPEG, PNG, BMP, etc.) into a single PDF file or individual PDF files.</p>
-            </div>
+      <h2 class="text-4xl font-bold text-blue-600 mb-8">Powerful Features</h2>
+      <p class="text-lg text-gray-600 mb-12">Our app is packed with features that make file conversions fast, easy, and secure.</p>
 
-            <!-- Service Item 2 -->
-            <div class="service-item bg-white p-8 rounded-lg shadow-2xl hover:scale-105 transform transition-all duration-300 hover:bg-blue-600 hover:text-white hover:shadow-2xl">
-                <img src="/path/to/service-icon2.png" alt="Compress Images" class="w-16 mx-auto mb-4">
-                <h3 class="text-2xl font-semibold mb-4">Compress Images</h3>
-                <p class="text-sm">Reduce image sizes without losing quality. No installation required; works directly in the browser.</p>
-            </div>
-
-            <!-- Service Item 3 -->
-            <div class="service-item bg-white p-8 rounded-lg shadow-2xl hover:scale-105 transform transition-all duration-300 hover:bg-blue-600 hover:text-white hover:shadow-2xl">
-                <img src="/path/to/service-icon3.png" alt="Edit PDFs" class="w-16 mx-auto mb-4">
-                <h3 class="text-2xl font-semibold mb-4">Edit PDFs</h3>
-                <p class="text-sm">Easily edit PDF content and manage files with our efficient PDF tools.</p>
-            </div>
-
-            <!-- Service Item 4 -->
-            <div class="service-item bg-white p-8 rounded-lg shadow-2xl hover:scale-105 transform transition-all duration-300 hover:bg-blue-600 hover:text-white hover:shadow-2xl">
-                <img src="/path/to/service-icon4.png" alt="Download & Sharing" class="w-16 mx-auto mb-4">
-                <h3 class="text-2xl font-semibold mb-4">Image Download & Sharing</h3>
-                <p class="text-sm">Download the converted PDF directly, or share it with others easily.</p>
-            </div>
-
-            <!-- Service Item 5 -->
-            <div class="service-item bg-white p-8 rounded-lg shadow-2xl hover:scale-105 transform transition-all duration-300 hover:bg-blue-600 hover:text-white hover:shadow-2xl">
-                <img src="/path/to/service-icon5.png" alt="Image Conversion" class="w-16 mx-auto mb-4">
-                <h3 class="text-2xl font-semibold mb-4">Image Conversion Tools</h3>
-                <p class="text-sm">Quickly convert images into any format you need without hassle.</p>
-            </div>
-
-            <!-- Service Item 6 -->
-            <div class="service-item bg-white p-8 rounded-lg shadow-2xl hover:scale-105 transform transition-all duration-300 hover:bg-blue-600 hover:text-white hover:shadow-2xl">
-                <img src="/path/to/service-icon6.png" alt="Cloud Storage Integration" class="w-16 mx-auto mb-4">
-                <h3 class="text-2xl font-semibold mb-4">Cloud Storage Integration</h3>
-                <p class="text-sm">Seamless integration with cloud storage for easy saving and access to your files.</p>
-            </div>
+      <div class="grid md:grid-cols-3 sm:grid-cols-1 gap-12">
+        <!-- Feature 1 -->
+        <div class="bg-blue-100 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+          <h3 class="text-2xl font-semibold text-blue-600 mb-4">300+ Formats Supported</h3>
+          <p class="text-gray-700 mb-4">We support over 25600 conversions between more than 300 file formats—more than any other converter.</p>
+          <a href="#" class="text-blue-600 hover:text-blue-800">Learn More</a>
         </div>
+
+        <!-- Feature 2 -->
+        <div class="bg-blue-100 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+          <h3 class="text-2xl font-semibold text-blue-600 mb-4">Fast and Easy</h3>
+          <p class="text-gray-700 mb-4">Just drop your files on the page, choose an output format, and click the "Convert" button. We aim to do all conversions in under 1-2 minutes.</p>
+          <a href="#" class="text-blue-600 hover:text-blue-800">Learn More</a>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="bg-blue-100 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+          <h3 class="text-2xl font-semibold text-blue-600 mb-4">In the Cloud</h3>
+          <p class="text-gray-700 mb-4">All conversions happen in the cloud, so you don't need to worry about using your computer's resources.</p>
+          <a href="#" class="text-blue-600 hover:text-blue-800">Learn More</a>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 sm:grid-cols-1 gap-12 mt-8">
+        <!-- Feature 4 -->
+        <div class="bg-blue-100 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+          <h3 class="text-2xl font-semibold text-blue-600 mb-4">Custom Settings</h3>
+          <p class="text-gray-700 mb-4">Most conversion types support advanced options. With our video converter, you can adjust quality, aspect ratio, codec, and more.</p>
+          <a href="#" class="text-blue-600 hover:text-blue-800">Learn More</a>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="bg-blue-100 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+          <h3 class="text-2xl font-semibold text-blue-600 mb-4">Security Guaranteed</h3>
+          <p class="text-gray-700 mb-4">Your privacy is 100% guaranteed. Uploaded files are deleted instantly, and converted files are removed after 24 hours.</p>
+          <a href="#" class="text-blue-600 hover:text-blue-800">Learn More</a>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="bg-blue-100 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
+          <h3 class="text-2xl font-semibold text-blue-600 mb-4">All Devices Supported</h3>
+          <p class="text-gray-700 mb-4">Our browser-based platform works across all devices. No need to download or install any software—just visit and convert!</p>
+          <a href="#" class="text-blue-600 hover:text-blue-800">Learn More</a>
+        </div>
+      </div>
     </div>
-</section>
-{% endblock %}
+  </section>
+  
+  {% endblock %}
+

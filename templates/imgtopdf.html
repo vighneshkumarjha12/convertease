@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
-
 {% block content %}
-    
+<br>
 <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8">
     <!-- Page Title -->
     <h1 class="text-3xl font-semibold text-[#1c3d73] mb-6 text-center">Convert Images to PDF</h1>
@@ -9,32 +8,96 @@
       Upload your images and convert them into a high-quality PDF file in just a few clicks.
     </p>
   
-    <!-- File Upload Section -->
-    <div class="bg-gray-50 p-6 border-dashed border-2 border-gray-300 rounded-lg mb-8">
-      <div class="text-center">
-        <p class="text-gray-500 mb-4">Drag and drop your images here or click to upload</p>
-        <label class="cursor-pointer">
-          <input type="file" accept="image/*" multiple class="hidden" id="file-input" />
-          <div class="inline-block px-6 py-2 bg-[#1c3d73] text-white rounded-md hover:bg-[#15315a]">
-            Browse Files
+    <!-- File Upload Form -->
+    <form id="upload-form" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!-- File Upload Section -->
+        <div class="bg-gray-50 p-6 border-dashed border-2 border-gray-300 rounded-lg mb-8">
+          <div class="text-center">
+            <p class="text-gray-500 mb-4">Drag and drop your images here or click to upload</p>
+            <label class="cursor-pointer">
+              <input type="file" name="img" accept="image/*" multiple class="hidden" id="file-input" onchange="updateFileName()" />
+              <div class="inline-block px-6 py-2 bg-[#1c3d73] text-white rounded-md hover:bg-[#15315a]">
+                Browse Files
+              </div>
+              <br>
+              <span id="file-name" class="ml-2 text-gray-700"></span> <!-- This will display the file name -->
+            </label>
           </div>
-        </label>
-      </div>
-    </div>
-  
-    <!-- Image Preview Section -->
-    <div id="preview-container" class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8 hidden">
-      <!-- Example placeholder; dynamically updated using JavaScript -->
-    </div>
-  
-    <!-- Convert Button -->
-    <div class="text-center">
-      <button 
-        id="convert-btn" 
-        class="w-full sm:w-auto px-8 py-3 bg-[#1c3d73] text-white text-lg font-medium rounded-md hover:bg-[#15315a] transition">
-        Convert to PDF
-      </button>
-    </div>
-  </div>
-  
+        </div>
+        
+        <script>
+          // Function to update the displayed file names
+          function updateFileName() {
+            const input = document.getElementById('file-input');
+            const fileNameDisplay = document.getElementById('file-name');
+            const files = input.files;
+        
+            if (files.length > 0) {
+              const fileNames = Array.from(files).map(file => file.name).join(', ');
+              fileNameDisplay.textContent = fileNames; // Display the selected file names
+            } else {
+              fileNameDisplay.textContent = ''; // Clear the display if no files are selected
+            }
+          }
+        
+          // Drag and drop functionality
+          const dropArea = document.querySelector('.bg-gray-50');
+        
+          dropArea.addEventListener('dragover', (event) => {
+            event.preventDefault(); // Prevent default behavior (Prevent file from being opened)
+            dropArea.classList.add('border-blue-500'); // Optional: Change border color on drag over
+          });
+        
+          dropArea.addEventListener('dragleave', () => {
+            dropArea.classList.remove('border-blue-500'); // Remove border color when drag leaves
+          });
+        
+          dropArea.addEventListener('drop', (event) => {
+            event.preventDefault(); // Prevent default behavior (Prevent file from being opened)
+            dropArea.classList.remove('border-blue-500'); // Remove border color on drop
+        
+            const files = event.dataTransfer.files; // Get the dropped files
+            const fileInput = document.getElementById('file-input');
+            fileInput.files = files; // Assign the dropped files to the file input
+            updateFileName(); // Update the displayed file names
+          });
+        </script>
+      
+        <!-- Convert Button -->
+        <div class="text-center">
+          <button 
+            id="convert-btn" 
+            type="submit"
+            class="w-full sm:w-auto px-8 py-3 bg-[#1c3d73] text-white text-lg font-medium rounded-md hover:bg-[#15315a] transition">
+            Convert to PDF
+          </button>
+        </div>
+    </form>
+</div>
+<script>
+  document.getElementById('file-input').addEventListener('change', function (event) {
+    const files = event.target.files;
+    const previewContainer = document.getElementById('preview-container');
+    previewContainer.innerHTML = ''; // Clear previous previews
+
+    if (files.length > 0) {
+        previewContainer.classList.remove('hidden');
+    }
+
+    Array.from(files).forEach(file => {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const img = document.createElement('img');
+            img.src = e.target.result;
+            img.alt = file.name;
+            img.classList.add('w-full', 'h-32', 'object-cover', 'rounded-md', 'shadow');
+            previewContainer.appendChild(img);
+        };
+        reader.readAsDataURL(file);
+    });
+});
+
+</script>
+<br>
 {% endblock %}

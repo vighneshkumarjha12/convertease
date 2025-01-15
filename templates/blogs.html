@@ -1,0 +1,171 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Section</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fb;
+        }
+
+        .blog-section {
+            background-color: #f9f9f9;
+            padding: 0px 0px;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 40px;
+            background-color: white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+        }
+
+        .content img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .content h2 {
+            font-size: 2.5rem;
+            margin-top: 20px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .content p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #555;
+            margin-top: 20px;
+            text-align: justify;
+        }
+
+        .links {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .links a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        .links a.read-more {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 500;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .links a.read-more:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .more-content {
+            display: none;
+            margin-top: 30px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .content h2 {
+                font-size: 2rem;
+            }
+
+            .content p {
+                font-size: 1rem;
+            }
+
+            .content img {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+        <div class="content">
+            <img src="{% static 'images/ban.jpg' %}" alt="Banner Image">
+            <h2>Introducing Image Converter: Effortless Image Conversion with 100% Security and 24/7 Availability</h2>
+            <p>Welcome to the official blog of <strong>Image Converter</strong>! We are excited to introduce you to our fast, secure, and easy-to-use web app that allows you to convert images into different formats with just a few clicks. Whether you need to convert an image to PDF, WebP, PNG, or JPG, Image Converter is the perfect tool for all your image format conversion needs.</p>
+
+            <div id="more-content" class="more-content">
+                <p><strong>What is Image Converter?</strong></p>
+                <p><strong>Image Converter</strong> is a powerful, free web app that allows users to convert images into multiple formats, including PDF, WebP, PNG, and JPG. Our platform ensures a seamless experience, providing fast and secure conversion services that are available 24/7. With <strong>Image Converter</strong>, you no longer have to worry about complicated software or long processing times – our tool does it all for you in seconds!</p>
+                <p><strong>Key Features and Functionalities:</strong></p>
+                <ul>
+                    <li>Fast and Efficient Image Conversion: Convert your images in just seconds.</li>
+                    <li>Multiple Image Formats: Convert to PDF, WebP, PNG, and JPG formats.</li>
+                    <li>100% Security: Your images are processed securely and deleted from servers after conversion.</li>
+                    <li>Available 24/7: Use the service at any time, from anywhere.</li>
+                    <li>Free to Use: Enjoy unlimited conversions for free.</li>
+                    <li>Simple and User-Friendly Interface: Easy to navigate for quick conversions.</li>
+                </ul>
+                <p><strong>Why Choose Image Converter?</strong></p>
+                <ul>
+                    <li>Fast Conversion: Quick and efficient image format conversion.</li>
+                    <li>Secure and Private: Your privacy matters. Files are deleted after conversion.</li>
+                    <li>24/7 Availability: Convert images anytime, day or night.</li>
+                    <li>Free to Use: No hidden fees, all features are completely free.</li>
+                </ul>
+                <p><strong>How to Use Image Converter?</strong></p>
+                <ol>
+                    <li>Visit the <strong>Image Converter</strong> website.</li>
+                    <li>Upload the image you want to convert.</li>
+                    <li>Select the output format (PDF, WebP, PNG, or JPG).</li>
+                    <li>Click the "Convert" button.</li>
+                    <li>Download your converted file instantly!</li>
+                </ol>
+                <p>With <strong>Image Converter</strong>, converting images is quick, secure, and easy. Whether you need to convert images to PDF for a presentation or switch formats for web usage, our platform has you covered. And the best part? It's completely free!</p>
+            </div>
+
+            <div class="links">
+                <a href="javascript:void(0)" class="read-more" id="read-more-link" onclick="toggleContent()">Read More</a>
+                <a href="#">Related Post 1</a>
+                <a href="#">Related Post 2</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleContent() {
+            var moreContent = document.getElementById("more-content");
+            var readMoreLink = document.getElementById("read-more-link");
+
+            if (moreContent.style.display === "none") {
+                moreContent.style.display = "block";
+                readMoreLink.innerText = "Read Less";
+            } else {
+                moreContent.style.display = "none";
+                readMoreLink.innerText = "Read More";
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+{% endblock %}

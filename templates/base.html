@@ -6,7 +6,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Responsive Navbar with Hover and Click Dropdown</title>
+  <title>Image Converter</title>
+<link rel ="icon" href="{% static 'images/diagram-unscreen.gif' %}" type="image/x-icon">
+</head>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-100">
@@ -25,6 +27,7 @@
           </button>
         </div>
 
+        
        <!-- Logo Section -->
       <a href="/" class="flex items-center space-x-2">
         <img src="{% static 'images/diagram-unscreen.gif' %}" alt="Logo" class="h-12 w-auto">
@@ -47,25 +50,27 @@
      class="absolute left-0 w-48 mt-2 bg-[#1c3d73] text-white shadow-md rounded-lg opacity-0 
             transform scale-y-0 transition-all duration-300 ease-in-out hidden group-hover:opacity-100 
             group-hover:scale-y-100 group-hover:block">
-  <a href="imgtopdf" 
-     class="block px-6 py-3 text-sm font-medium hover:bg-[#284b8a] transition-colors duration-200">
-    Image to PDF
-  </a>
   <a href="webptopng" 
      class="block px-6 py-3 text-sm font-medium hover:bg-[#284b8a] transition-colors duration-200">
-    Webp to Png
+    Any to Png
   </a>
   <a href="pngtowebp" 
      class="block px-6 py-3 text-sm font-medium hover:bg-[#284b8a] transition-colors duration-200">
-   png to Webp
+   Any to Webp    
   </a>
+  <a href="pngtojpg" 
+  class="block px-6 py-3 text-sm font-medium hover:bg-[#284b8a] transition-colors duration-200">
+  Any to jpg
+</a>
+
 </div>
 
             </div>
 
-            <a href="#" class="text-white hover:text-teal-300 transition duration-300">Blog</a>
-            <a href="#" class="text-white hover:text-teal-300 transition duration-300">Features</a>
-            <a href="#" class="text-white hover:text-teal-300 transition duration-300">How to Use</a>
+            <a href="blogs" class="text-white hover:text-teal-300 transition duration-300">Blog</a>
+            <a href="services" class="text-white hover:text-teal-300 transition duration-300">Features</a>
+            <a href="htu" class="text-white hover:text-teal-300 transition duration-300">How to Use</a>
+            <a href="contact" class="text-white hover:text-teal-300 transition duration-300">Contact </a>
           </div>
         </div>
       </div>
@@ -79,24 +84,25 @@
           <div class="absolute left-0 w-full mt-2 bg-white text-black shadow-lg rounded-lg opacity-0 
           transform scale-y-0 transition-all duration-300 ease-in-out hidden group-hover:opacity-100 
           group-hover:scale-y-100 group-hover:block sm:w-auto sm:left-auto sm:mt-0">
-<a href="#" 
+<a href="imgtopdf" 
    class="block px-4 py-2 text-sm hover:bg-teal-100 border-b last:border-b-0 sm:border-none sm:px-6 sm:py-3 sm:font-medium">
-  Image to PDF
+   Image to PDF
 </a>
-<a href="#" 
+<a href="webptopng" 
    class="block px-4 py-2 text-sm hover:bg-teal-100 border-b last:border-b-0 sm:border-none sm:px-6 sm:py-3 sm:font-medium">
-  Image Resizer
+   Webp to Png
 </a>
-<a href="#" 
+<a href="pngtowebp" 
    class="block px-4 py-2 text-sm hover:bg-teal-100 sm:border-none sm:px-6 sm:py-3 sm:font-medium">
-  Image Compressor
+   png to Webp
 </a>
 </div>
 
         </div>
-        <a href="#" class="text-white hover:text-teal-300 transition duration-300">Blog</a>
-        <a href="#" class="text-white hover:text-teal-300 transition duration-300">Features</a>
-        <a href="#" class="text-white hover:text-teal-300 transition duration-300">How to Use</a>
+        <a href="blogs" class="text-white hover:text-teal-300 transition duration-300">Blog</a>
+        <a href="services" class="text-white hover:text-teal-300 transition duration-300">Features</a>
+        <a href="htu" class="text-white hover:text-teal-300 transition duration-300">How to Use</a>
+        <a href="contact" class="text-white hover:text-teal-300 transition duration-300">Contact</a>
       </div>
     </div>
   </nav>

@@ -1,175 +1,85 @@
-{% extends 'base.html' %}   
+{% extends 'base.html' %}
 
-    {% block content %}
-    <style>
-        /* General Styles */
-        body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            transition: background-color 0.5s, color 0.5s;
-        }
+{% block content %}
+<div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8">
+    <!-- Page Title -->
+    <h1 class="text-3xl font-semibold text-[#1c3d73] mb-6 text-center">Convert Images to PDF</h1>
+    <p class="text-gray-600 mb-8 text-center">
+        Upload your images and convert them into a high-quality PDF file in just a few clicks.
+    </p>
 
-       
-        /* Main Section */
-        .main-section {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .main-section h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-
-        .main-section p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: #555;
-        }
-        .upload-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 200px;
-            width: 100%;
-            max-width: 500px;
-            border: 2px dashed #66badf;
-            border-radius: 10px;
-            padding: 20px;
-            background-color: #f9f9f9;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-align: center;
-        }
-        
-        .upload-box:hover {
-            transform: scale(1.02);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-        }
-        
-        .upload-box input[type="file"] {
-            opacity: 0;
-            position: absolute;
-            z-index: -1;
-        }
-        
-        .upload-box label {
-            font-size: 1.2rem;
-            color: #727cf5;
-            font-weight: bold;
-            cursor: pointer;
-            padding: 10px 20px;
-            background: #fff;
-            border: 1px solid #4CAF50;
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
-        }
-        
-        .upload-box label:hover {
-            background-color: #727cf5;
-            color: #fff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        .upload-box p {
-            margin-top: 10px;
-            color: #777;
-            font-size: 0.9rem;
-        }
-        
-        /* Services Section */
-        .services {
-            padding: 50px 20px;
-            background-color: #f9f9f9;
-            text-align: center;
-        }
-
-        .services h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #4CAF50;
-        }
-
-        .services p {
-            font-size: 1rem;
-            margin-bottom: 30px;
-            color: #666;
-        }
-
-        .service-list {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .service-item {
-            background: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 300px;
-            transition: transform 0.3s;
-        }
-
-        .service-item:hover {
-            transform: translateY(-10px);
-        }
-
-        .service-item img {
-            width: 60px;
-            margin-bottom: 15px;
-        }
-
-        .service-item h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .service-item p {
-            font-size: 0.9rem;
-            color: #555;
-        }
-
-    </style>
-    <script>
-        // Dark Mode Toggle
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
-        }
-
-        // Load Dark Mode Preference
-        document.addEventListener('DOMContentLoaded', () => {
-            if (localStorage.getItem('theme') === 'dark') {
-                document.body.classList.add('dark-mode');
-            }
-        });
-    </script>
-</head>
-<body>
-   
-    <!-- Main Section -->
-    <section class="main-section">
-        <h1>Convert Images to PDFs with Ease</h1>
-        <p>Upload or paste your image to start the conversion process. Quick and reliable results guaranteed!</p>
-        <div class="upload-box">
-            <input type="file" id="file-upload" accept="image/*">
-            <label for="file-upload">Click to Upload an Image</label>
-            <p>or drag and drop your file here</p>
+    <!-- Drag and Drop Upload Section -->
+    <form method="POST" enctype="multipart/form-data" action="" id="upload-form">
+        {% csrf_token %}
+        <div
+            id="drop-zone"
+            class="bg-gray-50 p-6 border-dashed border-2 border-gray-300 rounded-lg mb-8 text-center">
+            <p class="text-gray-500 mb-4">Drag and drop your images here or click to upload</p>
+            <label class="cursor-pointer">
+                <input
+                    type="file"
+                    name="img"
+                    accept="image/*"
+                    multiple
+                    class="hidden"
+                    id="file-input" />
+                <div
+                    class="inline-block px-6 py-2 bg-[#1c3d73] text-white rounded-md hover:bg-[#15315a]">
+                    Browse Files
+                </div>
+            </label>
         </div>
-        
-    </section>
 
+        <!-- File Name Display -->
+        <div id="file-list" class="text-left text-gray-700 mb-8">
+            <!-- Uploaded file names will be dynamically inserted here -->
+        </div>
 
-   
+        <!-- Convert Button -->
+        <div class="text-center">
+            <button
+                type="submit"
+                class="w-full sm:w-auto px-8 py-3 bg-[#1c3d73] text-white text-lg font-medium rounded-md hover:bg-[#15315a] transition">
+                Convert to PDF
+            </button>
+        </div>
+    </form>
+</div>
+
+<!-- JavaScript for Drag and Drop -->
+<script>
+    const fileInput = document.getElementById("file-input");
+    const dropZone = document.getElementById("drop-zone");
+    const fileList = document.getElementById("file-list");
+
+    // Handle Drag and Drop
+    dropZone.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dropZone.classList.add("border-blue-500");
+    });
+
+    dropZone.addEventListener("dragleave", () => {
+        dropZone.classList.remove("border-blue-500");
+    });
+
+    dropZone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        dropZone.classList.remove("border-blue-500");
+        fileInput.files = e.dataTransfer.files;
+        updateFileList();
+    });
+
+    // Handle File Input Change
+    fileInput.addEventListener("change", updateFileList);
+
+    function updateFileList() {
+        fileList.innerHTML = "";
+        for (const file of fileInput.files) {
+            const fileItem = document.createElement("div");
+            fileItem.textContent = file.name;
+            fileItem.className = "mb-2";
+            fileList.appendChild(fileItem);
+        }
+    }
+</script>
 {% endblock %}

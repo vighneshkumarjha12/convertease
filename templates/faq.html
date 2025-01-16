@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<div class="max-w-4xl mx-auto py-12">
+    <div class="bg-white p-8 rounded-xl shadow-lg space-y-6">
+      <h2 class="text-3xl font-semibold text-gray-800">Frequently Asked Questions</h2>
+  
+      <!-- FAQ Item 1 -->
+      <div class="faq-item border-b-2 border-gray-200">
+        <div class="faq-question flex justify-between items-center py-4 cursor-pointer text-lg font-medium text-gray-800">
+          <span>What file formats can I convert?</span>
+          <span class="toggle-icon text-blue-500 text-2xl">+</span>
+        </div>
+        <div class="faq-answer hidden pl-6 pb-4 text-gray-600">
+          <p>You can convert files to PDF, WebP, PNG, and JPG formats. Just upload your image, and we’ll take care of the rest.</p>
+        </div>
+      </div>
+  
+      <!-- FAQ Item 2 -->
+      <div class="faq-item border-b-2 border-gray-200">
+        <div class="faq-question flex justify-between items-center py-4 cursor-pointer text-lg font-medium text-gray-800">
+          <span>Is the service free?</span>
+          <span class="toggle-icon text-blue-500 text-2xl">+</span>
+        </div>
+        <div class="faq-answer hidden pl-6 pb-4 text-gray-600">
+          <p>Yes! Convertease offers free access to all our conversion features 24/7. No hidden charges!</p>
+        </div>
+      </div>
+  
+      <!-- FAQ Item 3 -->
+      <div class="faq-item border-b-2 border-gray-200">
+        <div class="faq-question flex justify-between items-center py-4 cursor-pointer text-lg font-medium text-gray-800">
+          <span>How long does it take to convert a file?</span>
+          <span class="toggle-icon text-blue-500 text-2xl">+</span>
+        </div>
+        <div class="faq-answer hidden pl-6 pb-4 text-gray-600">
+          <p>The conversion process is fast and typically takes only a few seconds, depending on the file size.</p>
+        </div>
+      </div>
+  
+      <!-- FAQ Item 4 -->
+      <div class="faq-item border-b-2 border-gray-200">
+        <div class="faq-question flex justify-between items-center py-4 cursor-pointer text-lg font-medium text-gray-800">
+          <span>Do I need to create an account to use the service?</span>
+          <span class="toggle-icon text-blue-500 text-2xl">+</span>
+        </div>
+        <div class="faq-answer hidden pl-6 pb-4 text-gray-600">
+          <p>No account is required to use Convertease. Simply upload your file, convert it, and download it without any registration process.</p>
+        </div>
+      </div>
+  
+      <!-- FAQ Item 5 -->
+      <div class="faq-item border-b-2 border-gray-200">
+        <div class="faq-question flex justify-between items-center py-4 cursor-pointer text-lg font-medium text-gray-800">
+          <span>Is my data secure?</span>
+          <span class="toggle-icon text-blue-500 text-2xl">+</span>
+        </div>
+        <div class="faq-answer hidden pl-6 pb-4 text-gray-600">
+          <p>Yes! We take security seriously. Your files are processed securely, and we don’t store any of your uploaded data after conversion.</p>
+        </div>
+      </div>
+  
+      <!-- FAQ Item 6 -->
+      <div class="faq-item border-b-2 border-gray-200">
+        <div class="faq-question flex justify-between items-center py-4 cursor-pointer text-lg font-medium text-gray-800">
+          <span>Can I convert multiple files at once?</span>
+          <span class="toggle-icon text-blue-500 text-2xl">+</span>
+        </div>
+        <div class="faq-answer hidden pl-6 pb-4 text-gray-600">
+          <p>Currently, our service allows for converting one file at a time, but we are working on supporting bulk conversions in the future.</p>
+        </div>
+      </div>
+  
+      <!-- FAQ Item 7 -->
+      <div class="faq-item border-b-2 border-gray-200">
+        <div class="faq-question flex justify-between items-center py-4 cursor-pointer text-lg font-medium text-gray-800">
+          <span>What is the maximum file size I can upload?</span>
+          <span class="toggle-icon text-blue-500 text-2xl">+</span>
+        </div>
+        <div class="faq-answer hidden pl-6 pb-4 text-gray-600">
+          <p>The maximum file size allowed is 50MB for each conversion. Larger files may be rejected.</p>
+        </div>
+      </div>
+  
+      <!-- FAQ Item 8 -->
+      <div class="faq-item border-b-2 border-gray-200">
+        <div class="faq-question flex justify-between items-center py-4 cursor-pointer text-lg font-medium text-gray-800">
+          <span>How can I contact support?</span>
+          <span class="toggle-icon text-blue-500 text-2xl">+</span>
+        </div>
+        <div class="faq-answer hidden pl-6 pb-4 text-gray-600">
+          <p>If you need assistance, you can contact our support team by emailing <a href="mailto:support@convertease.com" class="text-blue-500">support@convertease.com</a>.</p>
+        </div>
+      </div>
+  
+      <!-- FAQ Item 9 -->
+      <div class="faq-item border-b-2 border-gray-200">
+        <div class="faq-question flex justify-between items-center py-4 cursor-pointer text-lg font-medium text-gray-800">
+          <span>Are there any limitations on the types of images I can upload?</span>
+          <span class="toggle-icon text-blue-500 text-2xl">+</span>
+        </div>
+        <div class="faq-answer hidden pl-6 pb-4 text-gray-600">
+          <p>You can upload images in various formats, such as JPG, PNG, and WebP. However, images with watermarks or low resolution may not convert well.</p>
+        </div>
+      </div>
+  
+      <!-- FAQ Item 10 -->
+      <div class="faq-item">
+        <div class="faq-question flex justify-between items-center py-4 cursor-pointer text-lg font-medium text-gray-800">
+          <span>Can I convert files using a mobile device?</span>
+          <span class="toggle-icon text-blue-500 text-2xl">+</span>
+        </div>
+        <div class="faq-answer hidden pl-6 pb-4 text-gray-600">
+          <p>Yes! Our website is fully mobile-responsive, and you can easily convert files using any smartphone or tablet.</p>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  
+  <script>
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        const icon = question.querySelector('.toggle-icon');
+        
+        if (answer.classList.contains('hidden')) {
+          answer.classList.remove('hidden');
+          icon.textContent = '-';
+        } else {
+          answer.classList.add('hidden');
+          icon.textContent = '+';
+        }
+      });
+    });
+  </script>
+  
+{% endblock %}

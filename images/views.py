@@ -12,6 +12,16 @@ def home(request):
 
 def services(request):
     return render(request, 'service.html')
+
+def faq(request):
+    return render(request, 'faq.html')
+
+def about(request):
+    return render(request, 'about.html')
+
+def career(request):
+    return render(request, 'career.html')
+
 def imgtopdf(request):
     """Convert multiple images to PDF format."""
     if request.method == 'POST':  # Process only if the request is a POST

@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+<div class="bg-gray-50 py-16">
+  <div class="container mx-auto px-6">
+
+    <!-- Header Section -->
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-extrabold text-gray-800 mb-4" data-aos="fade-up">Your Next Career Opportunity</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+        Join a dynamic team that values creativity, innovation, and growth. At ConvertEase, we provide a collaborative environment where your ideas and contributions can make a meaningful impact. Explore open roles and shape the future with us!
+      </p>
+    </div>
+
+    <!-- Why Work With Us Section -->
+    <div class="text-center mb-16" data-aos="fade-up" data-aos-delay="200">
+      <h3 class="text-3xl font-semibold text-gray-800 mb-4">Why Choose Us?</h3>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        ConvertEase isn’t just a place to work; it’s a place to thrive. We value diversity, inclusivity, and a culture that nurtures creativity and continuous learning. Be part of a team that’s driven by a shared vision of success.
+      </p>
+    </div>
+
+    <!-- Open Positions Section -->
+    <div class="grid md:grid-cols-2 gap-16 mb-16">
+      <!-- SEO Marketing Role -->
+      <div class="bg-white p-8 rounded-xl shadow-xl transition-all hover:shadow-2xl transform hover:scale-105" data-aos="fade-right" data-aos-delay="300">
+        <h4 class="text-2xl font-semibold text-gray-800 mb-2">SEO Marketing Specialist</h4>
+        <p class="text-lg text-gray-600 mb-4">
+          As an SEO Marketing Specialist, you will be the driving force behind our digital presence. Your primary responsibility will be to optimize content, improve search rankings, and drive organic growth. We’re looking for someone with expertise in SEO tools, content strategy, and performance analytics.
+        </p>
+        <ul class="list-disc list-inside text-lg text-gray-600 mb-4">
+          <li>Expertise in keyword research and on-page optimization</li>
+          <li>Proven experience with Google Analytics and SEO tools</li>
+          <li>Ability to develop and execute SEO strategies to increase organic traffic</li>
+        </ul>
+        <a href="/apply/seo" class="text-blue-500 hover:underline">Apply Now</a>
+      </div>
+
+      <!-- Content Writer Role -->
+      <div class="bg-white p-8 rounded-xl shadow-xl transition-all hover:shadow-2xl transform hover:scale-105" data-aos="fade-left" data-aos-delay="300">
+        <h4 class="text-2xl font-semibold text-gray-800 mb-2">Content Writer</h4>
+        <p class="text-lg text-gray-600 mb-4">
+          We are looking for a passionate Content Writer to craft compelling, SEO-friendly content that resonates with our audience. You will be responsible for creating articles, blogs, web copy, and more. Creativity and attention to detail are a must!
+        </p>
+        <ul class="list-disc list-inside text-lg text-gray-600 mb-4">
+          <li>Ability to write clear, engaging, and persuasive content</li>
+          <li>Experience in SEO-driven content writing</li>
+          <li>Strong research skills and a keen eye for detail</li>
+        </ul>
+        <a href="/apply/content-writer" class="text-blue-500 hover:underline">Apply Now</a>
+      </div>
+    </div>
+
+    <!-- Culture Section -->
+    <div class="bg-blue-500 py-12 px-6 rounded-xl shadow-xl mb-16" data-aos="fade-up" data-aos-delay="400">
+      <div class="text-center text-white">
+        <h3 class="text-3xl font-semibold mb-4">Our Culture</h3>
+        <p class="text-lg mb-4">
+          At ConvertEase, we believe that a positive, inclusive workplace fosters creativity and productivity. Our team is united by a shared mission, and we support each other to achieve success. Join a workplace where your contributions matter.
+        </p>
+      </div>
+    </div>
+
+    <!-- Application Process Section -->
+    <div class="text-center mb-16" data-aos="fade-up" data-aos-delay="500">
+      <h3 class="text-3xl font-semibold text-gray-800 mb-4">How to Apply</h3>
+      <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        Ready to make an impact? Applying is easy. Choose the position that fits your skills, submit your application, and our team will review it promptly. We look forward to learning more about you!
+      </p><br>
+      <a href="/apply" class="bg-white text-blue-500 py-3 px-8 rounded-lg text-xl font-semibold shadow-md mt-6 hover:bg-blue-100">Start Your Application</a>
+    </div>
+
+    <!-- Testimonials Section (without employee names) -->
+    <div class="text-center mb-16" data-aos="fade-up" data-aos-delay="600">
+      <h3 class="text-3xl font-semibold text-gray-800 mb-4">What Our Team Says</h3>
+      <div class="flex justify-center gap-12">
+        <!-- Testimonial 1 -->
+        <div class="bg-white p-8 rounded-xl shadow-lg max-w-xs transition-all hover:scale-105" data-aos="fade-up">
+          <p class="text-lg text-gray-600 mb-4">
+            "Working at ConvertEase has been an incredible experience. I’m constantly challenged, supported, and encouraged to grow. The company culture is unmatched, and every day brings new opportunities to learn and innovate."
+          </p>
+          <p class="text-gray-600 italic">- Team Member</p>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="bg-white p-8 rounded-xl shadow-lg max-w-xs transition-all hover:scale-105" data-aos="fade-up" data-aos-delay="200">
+          <p class="text-lg text-gray-600 mb-4">
+            "At ConvertEase, we are empowered to take ownership of our projects and ideas. The open, collaborative environment has been key to my personal and professional growth. I feel truly valued here."
+          </p>
+          <p class="text-gray-600 italic">- Team Member</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

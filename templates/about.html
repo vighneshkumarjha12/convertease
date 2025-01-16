@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<div class="bg-gray-50 py-16">
+    <div class="container mx-auto px-6">
+        <!-- Header Section -->
+        <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-4xl font-bold text-gray-800 mb-4">About ConvertEase</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Welcome to ConvertEase, your go-to online platform for fast and secure image file conversions. Our mission is to make file conversion seamless, efficient, and accessible to everyone, anytime, anywhere.
+            </p>
+        </div>
+
+        <!-- What We Do Section -->
+        <div class="grid md:grid-cols-2 gap-16 mb-16" data-aos="fade-up" data-aos-delay="200">
+            <div class="space-y-6">
+                <h3 class="text-3xl font-semibold text-gray-800">What We Do</h3>
+                <p class="text-lg text-gray-600">
+                    At ConvertEase, we offer a reliable and user-friendly platform for converting image files. With support for popular formats like PDF, JPG, PNG, and WebP, our service allows you to quickly transform your images with just a few clicks.
+                </p>
+                <p class="text-lg text-gray-600">
+                    Our platform is designed to be fast, secure, and completely free to use. Whether you’re converting a single image or processing bulk files, ConvertEase has you covered.
+                </p>
+            </div>
+            <div class="transition-all duration-500 transform hover:scale-105" data-aos="zoom-in">
+                <img src="{% static 'images/se.png' %}" alt="ConvertEase Interface" class="rounded-xl shadow-lg w-full h-full object-cover"/>
+            </div>
+        </div>
+
+        <!-- Our Vision Section -->
+        <div class="bg-blue-500 py-12 px-6 rounded-xl shadow-xl mb-16" data-aos="fade-up" data-aos-delay="400">
+            <div class="text-center text-white">
+                <h3 class="text-3xl font-semibold mb-4">Our Vision</h3>
+                <p class="text-lg mb-4">
+                    Our vision is to empower individuals and businesses by providing them with a reliable and accessible tool to convert files with ease. We believe in simplifying complex processes to enhance productivity and creativity.
+                </p>
+                <p class="text-lg mb-4">
+                    Whether you're a casual user or a professional, ConvertEase offers a seamless, efficient, and secure experience that helps you manage your files without hassle.
+                </p>
+            </div>
+        </div>
+
+        <!-- Why Choose Us Section -->
+        <div class="grid md:grid-cols-3 gap-16 mb-16" data-aos="fade-up" data-aos-delay="600">
+            <div class="text-center">
+                <div class="bg-white p-8 rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105">
+                    <i class="fas fa-tachometer-alt text-5xl text-blue-500 mb-4"></i>
+                    <h4 class="text-2xl font-semibold text-gray-800 mb-2">Fast and Efficient</h4>
+                    <p class="text-gray-600">
+                        We prioritize speed. Convert your files in just a few seconds, no matter the size or format.
+                    </p>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <div class="bg-white p-8 rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105">
+                    <i class="fas fa-lock text-5xl text-blue-500 mb-4"></i>
+                    <h4 class="text-2xl font-semibold text-gray-800 mb-2">Secure and Safe</h4>
+                    <p class="text-gray-600">
+                        Your files are processed securely, and we ensure privacy by deleting your data after conversion.
+                    </p>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <div class="bg-white p-8 rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105">
+                    <i class="fas fa-cloud text-5xl text-blue-500 mb-4"></i>
+                    <h4 class="text-2xl font-semibold text-gray-800 mb-2">24/7 Availability</h4>
+                    <p class="text-gray-600">
+                        Our service is available round the clock, so you can convert your files whenever you need to.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Our Team Section -->
+        <div class="text-center mb-16" data-aos="fade-up" data-aos-delay="800">
+            <h3 class="text-3xl font-semibold text-gray-800 mb-4">Meet Our Team</h3>
+            <p class="text-lg text-gray-600 mb-8">
+                Behind ConvertEase is a passionate team dedicated to bringing you the best user experience. From our developers to our support team, we work together to provide you with a reliable and easy-to-use service.
+            </p>
+
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="text-center" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="{% static 'images/3rd-de.jpg' %}" alt="Team Member" class="rounded-full mx-auto mb-4"/>
+                    <h4 class="text-xl font-semibold text-gray-800">John Doe</h4>
+                    <p class="text-gray-600">Founder & CEO</p>
+                </div>
+                <div class="text-center" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="{% static 'images/3rd-de.jpg' %}" alt="Team Member" class="rounded-full mx-auto mb-4"/>
+                    <h4 class="text-xl font-semibold text-gray-800">Jane Smith</h4>
+                    <p class="text-gray-600">Lead Developer</p>
+                </div>
+                <div class="text-center" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="{% static 'images/3rd-de.jpg' %}" alt="Team Member" class="rounded-full mx-auto mb-4"/>
+                    <h4 class="text-xl font-semibold text-gray-800">Alice Brown</h4>
+                    <p class="text-gray-600">Customer Support</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action Section -->
+        <div class="bg-blue-500 py-12 text-center text-white" data-aos="fade-up" data-aos-delay="1000">
+            <h3 class="text-3xl font-semibold mb-4">Ready to Experience Fast & Secure File Conversion?</h3>
+            <p class="text-lg mb-6">Join thousands of satisfied users who trust ConvertEase for all their file conversion needs.</p>
+            <a href="/" class="bg-white text-blue-500 py-3 px-8 rounded-lg text-xl font-semibold shadow-md hover:bg-blue-200">Start Converting Now</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

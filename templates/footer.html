@@ -5,6 +5,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  rel="stylesheet"
+/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- Font Awesome for social icons -->
   <title>Modern Footer</title>
@@ -35,7 +41,7 @@
             <!-- Service Item 1 -->
             <div class="service-card bg-gradient-to-b from-blue-100 to-white p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                 <div class="icon-container bg-blue-600 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <img src="staticfiles/pdf.gif" alt="Image to PDF" class="w-12 h-12">
+                    <img src="static/images/folder.png" alt="Image to PDF" class="w-12 h-13">
                 </div>
                 <h3 class="text-xl font-semibold text-gray-800 text-center mb-4">Image to PDF Conversion</h3>
                 <p class="text-gray-600 text-center">Easily convert images into high-quality PDF files for professional reports, presentations, or compiling multiple images into one document. Perfect for personal or business use.</p>
@@ -44,7 +50,7 @@
             <!-- Service Item 2 -->
             <div class="service-card bg-gradient-to-b from-purple-100 to-white p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                 <div class="icon-container bg-purple-600 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <img src="/path/to/service-icon2.png" alt="Compress Images" class="w-12 h-12">
+                    <img src="static/images/png-file.png" alt="Compress Images" class="w-12 h-12">
                 </div>
                 <h3 class="text-xl font-semibold text-gray-800 text-center mb-4">Any Image to PNG</h3>
                 <p class="text-gray-600 text-center">Convert images to PNG format while preserving
@@ -54,9 +60,9 @@
             <!-- Service Item 3 -->
             <div class="service-card bg-gradient-to-b from-green-100 to-white p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                 <div class="icon-container bg-green-600 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <img src="/path/to/service-icon3.png" alt="Edit PDFs" class="w-12 h-12">
+                    <img src="static/images/jpg-file.png" alt="Edit PDFs" class="w-12 h-12">
                 </div>
-                <h3 class="text-xl font-semibold text-gray-800 text-center mb-4">Any Image to JPG:s</h3>
+                <h3 class="text-xl font-semibold text-gray-800 text-center mb-4">Any Image to JPG</h3>
                 <p class="text-gray-600 text-center">Optimize images with efficient JPG compression, reducing file sizes while maintaining quality. 
                   Perfect for sharing or saving storage space.</p>
             </div>
@@ -64,7 +70,7 @@
             <!-- Service Item 4 -->
             <div class="service-card bg-gradient-to-b from-pink-100 to-white p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                 <div class="icon-container bg-pink-600 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <img src="/path/to/service-icon4.png" alt="Download & Sharing" class="w-12 h-12">
+                    <img src="static/images/share.png" alt="Download & Sharing" class="w-12 h-12">
                 </div>
                 <h3 class="text-xl font-semibold text-gray-800 text-center mb-4">Image Download & Sharing</h3>
                 <p class="text-gray-600 text-center">Download the converted PDF directly, or share it with others easily.</p>
@@ -73,9 +79,9 @@
             <!-- Service Item 5 -->
             <div class="service-card bg-gradient-to-b from-yellow-100 to-white p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                 <div class="icon-container bg-yellow-600 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <img src="/path/to/service-icon5.png" alt="Image Conversion" class="w-12 h-12">
+                    <img src="static/images/webp.png" alt="Image Conversion" class="w-12 h-12">
                 </div>
-                <h3 class="text-xl font-semibold text-gray-800 text-center mb-4">Any Image to WebP:</h3>
+                <h3 class="text-xl font-semibold text-gray-800 text-center mb-4">Any Image to WebP</h3>
                 <p class="text-gray-600 text-center">Convert to WebP for optimized images with high compression, 
                   boosting website performance and speed without quality loss.</p>
             </div>
@@ -83,9 +89,9 @@
             <!-- Service Item 6 -->
             <div class="service-card bg-gradient-to-b from-teal-100 to-white p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
                 <div class="icon-container bg-teal-600 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <img src="/path/to/service-icon6.png" alt="Cloud Storage Integration" class="w-12 h-12">
+                    <img src="static/images/protection.png" alt="Cloud Storage Integration" class="w-12 h-12">
                 </div>
-                <h3 class="text-xl font-semibold text-gray-800 text-center mb-4">Secure Conversion:</h3>
+                <h3 class="text-xl font-semibold text-gray-800 text-center mb-4">Secure Conversion</h3>
                 <p class="text-gray-600 text-center">Your privacy is our priority. All files are securely processed and automatically deleted after conversion.</p>
             </div>
         </div>
@@ -100,21 +106,22 @@
         <!-- Contact Section -->
         <div>
           <a href="/" class="flex items-center space-x-2">
-            <img src="{% static 'images/diagram-unscreen.gif' %}" alt="Logo" class="h-12 w-auto">
-            <span class="text-cyan-300">Image Converter</span>
+            <img src="{% static 'images/ConvertEase-bg.png' %}" alt="Logo" class="h-12 w-auto">
+        
           </a>
-          <p class="text-lg font-bold">+91-93204 20001</p>
-          <p>help@acwo.com</p>
-          <p>Monday to Friday: 10:30 AM to 6 PM</p>
+          <p class="text-lg font-bold">+91-70288 51769</p>
+          <p>help@ConvertEase.com</p>
+          <p>Available 24/7</p>
         </div>
 
         <!-- Products Section -->
         <div>
           <h3 class="font-semibold text-lg mb-4">Products</h3>
           <ul class="space-y-2">
-            <li><a href="#">Smart Watch</a></li>
-            <li><a href="#">True Wireless Earbuds</a></li>
-            <li><a href="#">Active Noise Cancellation</a></li>
+            <li><a href="imgtopdf">Image to PDF</a></li>
+            <li><a href="webptopng">Any type to PNG</a></li>
+            <li><a href="pngtojpg">Any type to JPG</a></li>
+            <li><a href="pngtowebp">Any type to WebP</a></li>
           </ul>
         </div>
 
@@ -122,9 +129,9 @@
         <div>
           <h3 class="font-semibold text-lg mb-4">Company</h3>
           <ul class="space-y-2">
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">About ACwO</a></li>
-            <li><a href="#">Blog</a></li>
+            <li><a href="career">Careers</a></li>
+            <li><a href="about">About ConvertEase</a></li>
+            <li><a href="blogs">Blog</a></li>
           </ul>
         </div>
 
@@ -132,40 +139,75 @@
         <div>
           <h3 class="font-semibold text-lg mb-4">Important</h3>
           <ul class="space-y-2">
-            <li><a href="#">Track Your Order</a></li>
-            <li><a href="#">Raise Your Ticket</a></li>
-            <li><a href="#">Service Centre List</a></li>
-            <li><a href="#">Claim Warranty</a></li>
-            <li><a href="#">FAQs</a></li>
+            <li><a href="htu">How To Use it</a></li>
+            <li><a href="services">Features</a></li>
+            <li><a href="faq">FAQs</a></li>
           </ul>
         </div>
 
         <!-- Newsletter Section -->
         <div>
-          <h3 class="font-semibold text-lg mb-4">Newsletter Sign Up</h3>
-          <p class="text-sm mb-6">Get the latest updates and offers straight to your inbox.</p>
-          <form class="space-y-4">
-            <input type="email" placeholder="Enter Your Email Address" class="w-full p-3 rounded-md text-gray-900">
-            <button class="w-full bg-cyan-500 hover:bg-cyan-600 text-black font-semibold py-2 rounded-md">Subscribe</button>
-          </form>
+          <h3 class="font-semibold text-lg mb-4 text-white">Our Other Services</h3>
+          
+          <ul class="space-y-4 text-left">
+            <li class="flex items-center">
+              <i class="fas fa-code text-cyan-500 mr-2"></i>
+              <span class="text-white">Freelance Web Development Projects</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-laptop-code text-cyan-500 mr-2"></i>
+              <span class="text-white">IT Student Project Assistance</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-file-powerpoint text-cyan-500 mr-2"></i>
+              <span class="text-white">Custom PowerPoint Creation</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-file-alt text-cyan-500 mr-2"></i>
+              <span class="text-white">Custom Resume Writing</span>
+            </li>
+          </ul>
         </div>
       </div>
 
-      <!-- Follow Us Section -->
-      <div class="text-center mt-8">
-        <h3 class="font-semibold text-lg mb-4 text-white">Follow Us</h3>
-        <div class="flex justify-center space-x-6">
-          <a href="#" class="text-white hover:text-cyan-500"><i class="fab fa-facebook-f text-2xl"></i></a>
-          <a href="#" class="text-white hover:text-cyan-500"><i class="fab fa-twitter text-2xl"></i></a>
-          <a href="#" class="text-white hover:text-cyan-500"><i class="fab fa-instagram text-2xl"></i></a>
-          <a href="#" class="text-white hover:text-cyan-500"><i class="fab fa-linkedin-in text-2xl"></i></a>
+      <div class="text-center mt-12">
+        <h3 class="font-bold text-2xl mb-6 text-white">Follow Us</h3>
+        <div class="flex justify-center space-x-8">
+          <!-- YouTube -->
+          <a href="https://www.youtube.com/@vighnesh1370" target="_blank" rel="noopener noreferrer"
+             class="text-white hover:text-red-500 transition transform hover:scale-110 duration-300">
+            <i class="fab fa-youtube text-3xl"></i>
+          </a>
+          <!-- Pinterest -->
+          <a href="#" target="_blank" rel="noopener noreferrer"
+             class="text-white hover:text-red-600 transition transform hover:scale-110 duration-300">
+            <i class="fab fa-pinterest text-3xl"></i>
+          </a>
+          <!-- Instagram -->
+          <a href="#" target="_blank" rel="noopener noreferrer"
+             class="text-white hover:text-pink-500 transition transform hover:scale-110 duration-300">
+            <i class="fab fa-instagram text-3xl"></i>
+          </a>
+          <!-- LinkedIn -->
+          <a href="#" target="_blank" rel="noopener noreferrer"
+             class="text-white hover:text-blue-600 transition transform hover:scale-110 duration-300">
+            <i class="fab fa-linkedin text-3xl"></i>
+          </a>
         </div>
       </div>
+      
+      
 
-      <!-- Copyright Section -->
-      <div class="mt-12 text-center">
-        <p class="text-sm">© 2024 ACwO Lifestyle Pvt Ltd. All rights reserved.</p>
-      </div>
+     <!-- Copyright Section -->
+     <div class="mt-12 text-center">
+      <p class="text-sm text-white-500" >
+      <p class="text-sm text-white-500" style="font-size:20px">
+        © 2025 ConvertEase | Made with 
+        <span class="text-red-500" style="font-size: 2rem;">&hearts;</span> 
+       For love ones  |  All rights reserved. 
+      </p>
+    </div>
+
     </div>
   </footer>
 

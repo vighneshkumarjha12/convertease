@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.imgtopdf, name='home'),  # Set 'imgtopdf' as the home page
+    path('', views.home, name='home'),  # Set 'imgtopdf' as the home page
     path('jpgtopng', views.jpgtopng, name='jpgtopng'),
     path('pngtojpg', views.pngtojpg, name='pngtojpg'),
     path('webptopng', views.webptopng, name='webptopng'),
@@ -14,4 +14,7 @@ urlpatterns = [
     path('faq', views.faq, name='faq'),
     path('about', views.about, name='about'),
     path('career', views.career, name='career'),
+    path('pdf_to_word', views.pdf_to_word, name='pdf_to_word'),
+    path('pdf_to_ppt', views.pdf_to_ppt, name='pdf_to_ppt'),
+    path('imgtopdf', views.imgtopdf, name='imgtopdf'),
 ]

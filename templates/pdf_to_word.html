@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="max-w-5xl mx-auto bg-gradient-to-b from-[#f9f7ff] to-[#eaf2ff] rounded-xl shadow-xl p-10">
+    <!-- Page Title -->
+    <div class="text-center mb-10">
+        <img 
+            src="{% static 'images/pdf-to-word.gif' %}" 
+            alt="PDF to Word Icon" 
+            class="w-24 h-24 mx-auto mb-4 animate-pulse"
+        />
+        <h1 class="text-5xl font-bold text-[#2a3b8d]">
+            Convert PDF to Word
+        </h1>
+        <p class="text-gray-600 text-xl mt-3">
+            Quickly turn your PDFs into editable Word documents while keeping the formatting intact.
+        </p>
+    </div>
+
+    <!-- File Upload Form -->
+    <form method="POST" enctype="multipart/form-data" class="text-center">
+        {% csrf_token %}
+        <div 
+            class="bg-gradient-to-r from-[#e3f7fc] to-[#d0e8f9] border-dashed border-4 border-[#4fc3f7] rounded-xl p-10 mb-8 hover:shadow-lg transition duration-300 relative"
+        >
+            <div class="flex flex-col items-center">
+                <div class="bg-gradient-to-br from-[#0288d1] to-[#4fc3f7] p-5 rounded-full mb-5 shadow-lg">
+                    <img 
+                        src="{% static 'images/upload.gif' %}" 
+                        alt="Upload Icon" 
+                        class="w-16 h-16"
+                    />
+                </div>
+                <p class="text-[#2a3b8d] text-lg font-semibold mb-5">
+                    Drag and drop your PDF here, or click below to upload.
+                </p>
+                <label class="cursor-pointer">
+                    <input 
+                        id="pdf-upload" 
+                        type="file" 
+                        name="pdf_file" 
+                        accept="application/pdf" 
+                        class="hidden" 
+                        onchange="showFileName()" 
+                    />
+                    <div 
+                        class="inline-block px-8 py-4 bg-gradient-to-r from-[#0288d1] to-[#4fc3f7] text-white text-md font-medium rounded-lg hover:from-[#026aa7] hover:to-[#039be5] transition shadow-lg"
+                    >
+                        Browse PDF File
+                    </div>
+                </label>
+                <!-- Display Selected File -->
+                <span id="file-name" class="mt-4 text-[#2a3b8d] font-medium text-sm"></span>
+            </div>
+        </div>
+
+        <button 
+            type="submit" 
+            class="w-full sm:w-auto px-12 py-4 bg-gradient-to-r from-[#4fc3f7] to-[#0288d1] text-white text-xl font-bold rounded-lg hover:from-[#039be5] hover:to-[#01579b] transition shadow-lg"
+        >
+            Convert to Word
+        </button>
+    </form>
+
+    <!-- Benefits Section -->
+    <div class="mt-12 bg-gradient-to-r from-[#e3f7fc] to-[#d0e8f9] p-8 rounded-xl shadow-md">
+        <h2 class="text-3xl font-bold text-[#0288d1] mb-8 text-center">Why Use Our Tool?</h2>
+        <ul class="space-y-6 text-gray-700">
+            <li class="flex items-center">
+                <div class="bg-[#4fc3f7] p-4 rounded-full">
+                    <img 
+                        src="{% static 'images/approved.png' %}" 
+                        alt="Reliable Conversion" 
+                        class="w-14 h-14"
+                    />
+                </div>
+                <span class="ml-4 text-lg">
+                    Fast and dependable PDF to Word conversion.
+                </span>
+            </li>
+            <li class="flex items-center">
+                <div class="bg-[#4fc3f7] p-4 rounded-full">
+                    <img 
+                        src="{% static 'images/tick.png' %}" 
+                        alt="Preserves Quality" 
+                        class="w-14 h-14"
+                    />
+                </div>
+                <span class="ml-4 text-lg">
+                    Maintains original formatting and design accuracy.
+                </span>
+            </li>
+            <li class="flex items-center">
+                <div class="bg-[#4fc3f7] p-4 rounded-full">
+                    <img 
+                        src="{% static 'images/heart.png' %}" 
+                        alt="Secure and Easy to Use" 
+                        class="w-14 h-14"
+                    />
+                </div>
+                <span class="ml-4 text-lg">
+                    Secure, user-friendly, and completely hassle-free.
+                </span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    // JavaScript to show the selected file name
+    function showFileName() {
+        const input = document.getElementById('pdf-upload');
+        const fileNameDisplay = document.getElementById('file-name');
+        const files = input.files;
+
+        if (files.length > 0) {
+            fileNameDisplay.textContent = `Selected File: ${files[0].name}`;
+        } else {
+            fileNameDisplay.textContent = ''; // Clear if no file is selected
+        }
+    }
+</script>
+{% endblock %}

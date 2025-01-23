@@ -1,105 +1,117 @@
 {% extends 'base.html' %}
-{% block content %}
-<br>
 {% load static %}
-<div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8">
+{% block content %}
+<div class="max-w-4xl mx-auto bg-gradient-to-b from-[#fff7f0] to-[#f0f5ff] rounded-xl shadow-lg p-8">
     <!-- Page Title -->
-    <h1 class="text-3xl font-bold text-[#1c3d73] mb-6 text-center">Convert Images to PDF</h1>
-    <p class="text-gray-600 mb-8 text-center">
-      Upload your images and convert them into a high-quality PDF file in just a few clicks.
-    </p>
-  
+    <div class="text-center mb-8">
+        <img 
+            src="{% static 'images/cloud-folder.gif' %}"
+            alt="Convert Images Icon" 
+            class="w-20 h-20 mx-auto mb-4"
+        />
+        <h1 class="text-4xl font-extrabold text-[#1c3d73]">Convert Images to PDF</h1>
+        <p class="text-gray-700 text-lg mt-2">
+            Upload your images and turn them into a high-quality PDF file with ease!
+        </p>
+    </div>
+
     <!-- File Upload Form -->
-    <form id="upload-form" method="POST" enctype="multipart/form-data">
+    <form method="POST" enctype="multipart/form-data" class="text-center">
         {% csrf_token %}
-        <!-- File Upload Section -->
-        <div class="bg-gray-50 p-6 border-dashed border-2 border-gray-300 rounded-lg mb-8 ">
-          <div class="text-center">
-            <img src="{% static 'images/cloud-folder.gif' %}" alt="Banner Image"  class="w-12 h-12 inline-block">
-            <p class="text-gray-500 mb-4">Drag and drop your images here or click to upload</p>
-            <label class="cursor-pointer">
-              <input type="file" name="img" accept="image/*" multiple class="hidden" id="file-input" onchange="updateFileName()" />
-              <div class="inline-block px-6 py-2 bg-[#1c3d73] text-white rounded-md hover:bg-[#15315a]">
-                Browse Files
-              </div>
-              <br>
-              <span id="file-name" class="ml-2 text-gray-700"></span> <!-- This will display the file name -->
-            </label>
-          </div>
+        <div 
+            class="bg-gradient-to-r from-[#e6f7ff] via-[#cceeff] to-[#b3e6ff] border-dashed border-4 border-[#1c3d73] rounded-xl p-8 mb-6 hover:shadow-lg transition relative"
+        >
+            <div class="flex flex-col items-center">
+                <div class="bg-gradient-to-br from-[#1c3d73] to-[#15315a] p-4 rounded-full mb-4 shadow-lg">
+                    <img 
+                        src="{% static 'images/cloud-folder.gif' %}" 
+                        alt="Upload Icon" 
+                        class="w-16 h-16"
+                    />
+                </div>
+                <p class="text-[#1c3d73] text-lg font-semibold mb-4">
+                    Drag and drop your images here, or click below to upload.
+                </p>
+                <label class="cursor-pointer">
+                    <input 
+                        id="image-upload" 
+                        type="file" 
+                        name="img" 
+                        accept="image/*" 
+                        multiple 
+                        class="hidden" 
+                        onchange="updateFileName()" 
+                    />
+                    <div 
+                        class="inline-block px-6 py-3 bg-gradient-to-r from-[#1c3d73] to-[#15315a] text-white text-md font-medium rounded-lg hover:from-[#15315a] hover:to-[#10263f] transition shadow-md"
+                    >
+                        Browse Image Files
+                    </div>
+                </label>
+                <!-- Display Chosen File Names -->
+                <span id="file-name" class="mt-4 text-[#1c3d73] font-semibold text-sm"></span>
+            </div>
         </div>
-        
-        <script>
-          // Function to update the displayed file names
-          function updateFileName() {
-            const input = document.getElementById('file-input');
-            const fileNameDisplay = document.getElementById('file-name');
-            const files = input.files;
-        
-            if (files.length > 0) {
-              const fileNames = Array.from(files).map(file => file.name).join(', ');
-              fileNameDisplay.textContent = fileNames; // Display the selected file names
-            } else {
-              fileNameDisplay.textContent = ''; // Clear the display if no files are selected
-            }
-          }
-        
-          // Drag and drop functionality
-          const dropArea = document.querySelector('.bg-gray-50');
-        
-          dropArea.addEventListener('dragover', (event) => {
-            event.preventDefault(); // Prevent default behavior (Prevent file from being opened)
-            dropArea.classList.add('border-blue-500'); // Optional: Change border color on drag over
-          });
-        
-          dropArea.addEventListener('dragleave', () => {
-            dropArea.classList.remove('border-blue-500'); // Remove border color when drag leaves
-          });
-        
-          dropArea.addEventListener('drop', (event) => {
-            event.preventDefault(); // Prevent default behavior (Prevent file from being opened)
-            dropArea.classList.remove('border-blue-500'); // Remove border color on drop
-        
-            const files = event.dataTransfer.files; // Get the dropped files
-            const fileInput = document.getElementById('file-input');
-            fileInput.files = files; // Assign the dropped files to the file input
-            updateFileName(); // Update the displayed file names
-          });
-        </script>
-      
-        <!-- Convert Button -->
-        <div class="text-center">
-          <button 
-            id="convert-btn" 
-            type="submit"
-            class="w-full sm:w-auto px-8 py-3 bg-[#1c3d73] text-white text-lg font-medium rounded-md hover:bg-[#15315a] transition">
+
+        <button 
+            type="submit" 
+            class="w-full sm:w-auto px-10 py-3 bg-gradient-to-r from-[#15315a] to-[#1c3d73] text-white text-lg font-bold rounded-lg hover:from-[#10263f] hover:to-[#122948] transition shadow-lg"
+        >
             Convert to PDF
-          </button>
-        </div>
+        </button>
     </form>
+
+    <!-- Benefits Section -->
+    <div class="mt-10 bg-gradient-to-r from-[#e6f7ff] via-[#cceeff] to-[#b3e6ff] p-6 rounded-xl shadow-md">
+        <h2 class="text-2xl font-bold text-[#1c3d73] mb-6 text-center">Why Choose Our Tool?</h2>
+        <ul class="space-y-4 text-gray-700">
+            <li class="flex items-center">
+                <div class="bg-[#1c3d73] p-2 rounded-full">
+                    <img 
+                        src="{% static 'images/approved.png' %}" 
+                        alt="Quick Icon" 
+                        class="w-16 h-16"
+                    />
+                </div>
+                <span class="ml-3">Quick and reliable image to PDF conversion.</span>
+            </li>
+            <li class="flex items-center">
+                <div class="bg-[#1c3d73] p-2 rounded-full">
+                    <img 
+                        src="{% static 'images/tick.png' %}" 
+                        alt="Quality Icon" 
+                        class="w-16 h-16"
+                    />
+                </div>
+                <span class="ml-3">Preserves image quality and layout.</span>
+            </li>
+            <li class="flex items-center">
+                <div class="bg-[#1c3d73] p-2 rounded-full">
+                    <img 
+                        src="{% static 'images/heart.png' %}" 
+                        alt="Secure Icon" 
+                        class="w-16 h-16"
+                    />
+                </div>
+                <span class="ml-3">Completely secure and user-friendly.</span>
+            </li>
+        </ul>
+    </div>
 </div>
+
 <script>
-  document.getElementById('file-input').addEventListener('change', function (event) {
-    const files = event.target.files;
-    const previewContainer = document.getElementById('preview-container');
-    previewContainer.innerHTML = ''; // Clear previous previews
+    // JavaScript to display the selected file names
+    function updateFileName() {
+        const input = document.getElementById('image-upload');
+        const fileNameDisplay = document.getElementById('file-name');
+        const files = input.files;
 
-    if (files.length > 0) {
-        previewContainer.classList.remove('hidden');
+        if (files.length > 0) {
+            const fileNames = Array.from(files).map(file => file.name).join(', ');
+            fileNameDisplay.textContent = `Selected Files: ${fileNames}`;
+        } else {
+            fileNameDisplay.textContent = ''; // Clear if no file is selected
+        }
     }
-
-    Array.from(files).forEach(file => {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-            const img = document.createElement('img');
-            img.src = e.target.result;
-            img.alt = file.name;
-            img.classList.add('w-full', 'h-32', 'object-cover', 'rounded-md', 'shadow');
-            previewContainer.appendChild(img);
-        };
-        reader.readAsDataURL(file);
-    });
-});
-
 </script>
-<br>
 {% endblock %}

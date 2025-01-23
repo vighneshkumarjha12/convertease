@@ -1,88 +1,132 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-8">
-    <!-- Page Title -->
-    <h1 
-        class="text-3xl font-semibold text-[#1c3d73] mb-6 text-center border-b-4 border-[#1c3d73] pb-2">
-        Convert Images to PDF
-    </h1>
-    <p class="text-gray-600 mb-8 text-center">
-        Upload your images and convert them into a high-quality PDF file in just a few clicks.
-    </p>
+<div class="bg-gradient-to-br from-[#f5f7fa] to-[#ffffff] min-h-screen">
+    <!-- Hero Section -->
+    <header class="py-20 bg-gradient-to-r from-[#4a69bd] to-[#6a89cc] text-white text-center">
+        <h1 class="text-5xl font-extrabold tracking-tight mb-6">Welcome to Image Converter Hub</h1>
+        <p class="text-lg max-w-4xl mx-auto leading-relaxed">
+            Your one-stop platform for fast, secure, and efficient image and file conversions. Save time and get the best results in seconds!
+        </p>
+        <div class="mt-8">
+            <a href="#features" class="px-8 py-4 text-lg font-semibold bg-[#f7b801] text-black rounded-full shadow-md hover:bg-[#ffd23f] transition-all duration-300">
+                Explore Features
+            </a>
+        </div>
+    </header>
 
-    <!-- Drag and Drop Upload Section -->
-    <form method="POST" enctype="multipart/form-data" action="" id="upload-form">
-        {% csrf_token %}
-        <div
-            id="drop-zone"
-            class="bg-red-100 p-6 border-dashed border-2 border-red-400 rounded-lg mb-8 text-center transition-all duration-300 ease-in-out hover:shadow-lg">
-            <p class="text-red-700 mb-4 font-medium">Drag and drop your images here or click to upload</p>
-            <label class="cursor-pointer">
-                <input
-                    type="file"
-                    name="img"
-                    accept="image/*"
-                    multiple
-                    class="hidden"
-                    id="file-input" />
-                <div
-                    class="inline-block px-6 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition">
-                    Browse Files
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-[#f9fafc]">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-[#4a69bd] mb-16">Our Key Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                {% for feature in features %}
+                <div class="relative bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#4a69bd] to-[#6a89cc] rounded-t-lg"></div>
+                    <div class="p-8 text-center">
+                        <img src="{{ feature.icon }}" alt="{{ feature.title }}" class="w-16 h-16 mx-auto mb-6">
+                        <h3 class="text-2xl font-bold text-[#00000] mb-4">{{ feature.title }}</h3>
+                        <p class="text-gray-600 mb-6">{{ feature.description }}</p>
+                        <a href="{{ feature.link }}" class="inline-block px-6 py-2 bg-[#4a69bd] text-white font-semibold rounded-full hover:bg-[#3a578d] transition duration-300">
+                            Learn More
+                        </a>
+                    </div>
                 </div>
-            </label>
+                {% endfor %}
+            </div>
         </div>
+    </section>
 
-        <!-- File Name Display -->
-        <div id="file-list" class="text-left text-gray-700 mb-8">
-            <!-- Uploaded file names will be dynamically inserted here -->
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-[#4a69bd] mb-12">How It Works</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="text-center">
+                    <div class="text-5xl font-bold text-[#4a69bd] mb-4">1</div>
+                    <h3 class="text-xl font-semibold mb-4">Choose Your Tool</h3>
+                    <p class="text-gray-600">Select the tool you need, whether it's converting images to PDFs or changing file formats.</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-bold text-[#4a69bd] mb-4">2</div>
+                    <h3 class="text-xl font-semibold mb-4">Upload Your Files</h3>
+                    <p class="text-gray-600">Drag and drop your files or upload them securely through our platform.</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-bold text-[#4a69bd] mb-4">3</div>
+                    <h3 class="text-xl font-semibold mb-4">Download Instantly</h3>
+                    <p class="text-gray-600">Get your processed file within seconds, ready for use.</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- Convert Button -->
-        <div class="text-center">
-            <button
-                type="submit"
-                class="w-full sm:w-auto px-8 py-3 bg-[#1c3d73] text-white text-lg font-medium rounded-md hover:bg-[#15315a] transition">
-                Convert to PDF
-            </button>
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-20 bg-[#f9fafc]">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-[#4a69bd] mb-12">Why Choose Us?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="text-center">
+                    <img src="/static/icons/speed.svg" alt="Speed" class="w-16 h-16 mx-auto mb-6">
+                    <h3 class="text-xl font-semibold mb-4">Lightning Fast</h3>
+                    <p class="text-gray-600">Enjoy blazing-fast processing speeds that save you time and effort.</p>
+                </div>
+                <div class="text-center">
+                    <img src="/static/icons/security.svg" alt="Security" class="w-16 h-16 mx-auto mb-6">
+                    <h3 class="text-xl font-semibold mb-4">Secure</h3>
+                    <p class="text-gray-600">Your files are processed securely and deleted immediately after use.</p>
+                </div>
+                <div class="text-center">
+                    <img src="/static/icons/ease.svg" alt="Ease of Use" class="w-16 h-16 mx-auto mb-6">
+                    <h3 class="text-xl font-semibold mb-4">Easy to Use</h3>
+                    <p class="text-gray-600">Our user-friendly interface makes file conversion a breeze.</p>
+                </div>
+            </div>
         </div>
-    </form>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blogs" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-[#4a69bd] mb-12">Our Latest Blogs</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                {% for blog in blogs %}
+                <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <img src="{{ blog.image }}" alt="{{ blog.title }}" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-[#4a69bd] mb-4">{{ blog.title }}</h3>
+                        <p class="text-gray-600">{{ blog.excerpt }}</p>
+                        <a href="{{ blog.link }}" class="text-[#4a69bd] font-semibold hover:underline">Read More</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-[#f9fafc]">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-[#4a69bd] mb-12">Contact Us</h2>
+            <form method="POST" class="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-8 space-y-6">
+                {% csrf_token %}
+                <div>
+                    <label for="name" class="block text-gray-700 font-semibold mb-2">Your Name</label>
+                    <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#4a69bd] focus:border-[#4a69bd]">
+                </div>
+                <div>
+                    <label for="email" class="block text-gray-700 font-semibold mb-2">Your Email</label>
+                    <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#4a69bd] focus:border-[#4a69bd]">
+                </div>
+                <div>
+                    <label for="message" class="block text-gray-700 font-semibold mb-2">Your Message</label>
+                    <textarea id="message" name="message" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-[#4a69bd] focus:border-[#4a69bd]"></textarea>
+                </div>
+                <button type="submit" class="w-full px-6 py-3 bg-[#4a69bd] text-white rounded-lg hover:bg-[#3a578d] transition-all duration-300">
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
 </div>
-
-<!-- JavaScript for Drag and Drop -->
-<script>
-    const fileInput = document.getElementById("file-input");
-    const dropZone = document.getElementById("drop-zone");
-    const fileList = document.getElementById("file-list");
-
-    // Handle Drag and Drop Events
-    dropZone.addEventListener("dragover", (e) => {
-        e.preventDefault();
-        dropZone.classList.add("border-red-500", "bg-red-200");
-    });
-
-    dropZone.addEventListener("dragleave", () => {
-        dropZone.classList.remove("border-red-500", "bg-red-200");
-    });
-
-    dropZone.addEventListener("drop", (e) => {
-        e.preventDefault();
-        dropZone.classList.remove("border-red-500", "bg-red-200");
-        fileInput.files = e.dataTransfer.files;
-        updateFileList();
-    });
-
-    // Handle File Input Change
-    fileInput.addEventListener("change", updateFileList);
-
-    function updateFileList() {
-        fileList.innerHTML = "";
-        for (const file of fileInput.files) {
-            const fileItem = document.createElement("div");
-            fileItem.innerHTML = `<span class="text-sm">📄 ${file.name}</span>`;
-            fileItem.className = "mb-2 flex items-center gap-2";
-            fileList.appendChild(fileItem);
-        }
-    }
-</script>
 {% endblock %}

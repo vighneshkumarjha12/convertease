@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="max-w-4xl mx-auto bg-gradient-to-b from-[#fff7f0] to-[#f0f5ff] rounded-xl shadow-lg p-8">
+    <!-- Page Title -->
+    <div class="text-center mb-8">
+        <img 
+            src="{% static 'images/laptop.gif' %}"
+            alt="Convert PDF Icon" 
+            class="w-20 h-20 mx-auto mb-4"
+        />
+        <h1 class="text-4xl font-extrabold text-[#c9302c]">Convert PDF to PowerPoint</h1>
+        <p class="text-gray-700 text-lg mt-2">
+            Turn your PDF files into PowerPoint presentations effortlessly!
+        </p>
+    </div>
+
+    <!-- File Upload Form -->
+    <form method="POST" enctype="multipart/form-data" class="text-center">
+        {% csrf_token %}
+        <div 
+            class="bg-gradient-to-r from-[#ffe6e6] via-[#ffe6cc] to-[#ffcc99] border-dashed border-4 border-[#ff704d] rounded-xl p-8 mb-6 hover:shadow-lg transition relative"
+        >
+            <div class="flex flex-col items-center">
+                <div class="bg-gradient-to-br from-[#d9534f] to-[#f0ad4e] p-4 rounded-full mb-4 shadow-lg">
+                    <img 
+                    src="{% static 'images/dw.gif' %}" 
+                        alt="Upload Icon" 
+                        class="w-16 h-16"
+                    />
+                </div>
+                <p class="text-[#c9302c] text-lg font-semibold mb-4">
+                    Drag and drop your PDF here, or click below to upload.
+                </p>
+                <label class="cursor-pointer">
+                    <input 
+                        id="pdf-upload" 
+                        type="file" 
+                        name="pdf_file" 
+                        accept="application/pdf" 
+                        class="hidden" 
+                        onchange="displayFileName()" 
+                    />
+                    <div 
+                        class="inline-block px-6 py-3 bg-gradient-to-r from-[#d9534f] to-[#f0ad4e] text-white text-md font-medium rounded-lg hover:from-[#c9302c] hover:to-[#ec971f] transition shadow-md"
+                    >
+                        Browse PDF File
+                    </div>
+                </label>
+                <!-- Display Chosen File Name -->
+                <span id="file-name" class="mt-4 text-[#c9302c] font-semibold text-sm"></span>
+            </div>
+        </div>
+
+        <button 
+            type="submit" 
+            class="w-full sm:w-auto px-10 py-3 bg-gradient-to-r from-[#f0ad4e] to-[#d9534f] text-white text-lg font-bold rounded-lg hover:from-[#ec971f] hover:to-[#c9302c] transition shadow-lg"
+        >
+            Convert to PowerPoint
+        </button>
+    </form>
+
+    <!-- Benefits Section -->
+    <div class="mt-10 bg-gradient-to-r from-[#ffe6cc] via-[#ffcc99] to-[#ffd9b3] p-6 rounded-xl shadow-md">
+        <h2 class="text-2xl font-bold text-[#d9534f] mb-6 text-center">Why Choose Our Tool?</h2>
+        <ul class="space-y-4 text-gray-700">
+            <li class="flex items-center">
+                <div class="bg-[#f0ad4e] p-2 rounded-full">
+                    <img 
+                    src="{% static 'images/approved.png' %}" 
+                        alt="Upload Icon" 
+                        class="w-16 h-16"
+                    />
+                </div>
+                <span class="ml-3">Quick and reliable PDF to PowerPoint conversion.</span>
+            </li>
+            <li class="flex items-center">
+                <div class="bg-[#f0ad4e] p-2 rounded-full">
+                    <img 
+                    src="{% static 'images/tick.png' %}" 
+                        alt="Upload Icon" 
+                        class="w-16 h-16"
+                    />
+                </div>
+                <span class="ml-3">Preserves original formatting and design quality.</span>
+            </li>
+            <li class="flex items-center">
+                <div class="bg-[#f0ad4e] p-2 rounded-full">
+                    <img 
+                    src="{% static 'images/heart.png' %}" 
+                        alt="Upload Icon" 
+                        class="w-16 h-16"
+                    />
+                </div>
+                <span class="ml-3">Completely secure and user-friendly.</span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script>
+    // JavaScript to display the selected file name
+    function displayFileName() {
+        const input = document.getElementById('pdf-upload');
+        const fileNameDisplay = document.getElementById('file-name');
+        const files = input.files;
+
+        if (files.length > 0) {
+            fileNameDisplay.textContent = `Selected File: ${files[0].name}`;
+        } else {
+            fileNameDisplay.textContent = ''; // Clear if no file is selected
+        }
+    }
+</script>
+{% endblock %}

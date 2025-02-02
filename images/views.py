@@ -1,12 +1,9 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse ,redirect
 from PIL import Image
 import img2pdf
 import io
 import os
 from django.contrib.auth import logout, authenticate, login 
-from datetime import datetime
-from images.models import Contact
-from django.contrib import messages
 from django.http import HttpResponse
 import pdfplumber
 from docx import Document
@@ -18,6 +15,15 @@ import fitz  # PyMuPDF
 from pptx.util import Pt
 from pptx.enum.text import PP_ALIGN
 from pptx.dml.color import RGBColor
+from io import BytesIO
+import pandas as pd
+from PyPDF2 import PdfReader, PdfWriter
+from django.contrib import messages
+from django.core.mail import send_mail
+from django.conf import settings
+from .models import Contact
+from .forms import ContactForm
+
 
 def home(request):
     return render(request, 'home.html')
@@ -103,7 +109,7 @@ def pdf_to_word(request):
 
             # Create a Word document using python-docx
             doc = Document()
-            doc.add_heading("PDF to Word Conversion", level=1)
+            doc.add_heading("PDF to Word With Convereases", level=1)
             for page_num, page_text in enumerate(pdf_text, start=1):
                 doc.add_heading(f"Page {page_num}", level=2)
                 doc.add_paragraph(page_text)
@@ -228,17 +234,46 @@ def services(request):
 def blogs(request):
     return render(request, 'blogs.html')
 
+def contact_view(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()  # Save the form data to the database
+            messages.success(request, "Your message has been sent successfully!")
+            return redirect('contact')
+        else:
+            messages.error(request, "There was an error in your form submission.")
+    else:
+        form = ContactForm()
+    return render(request, 'contact.html', {'form': form})
 
 
-def contact(request):
-    if request.method == "POST":
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        phone = request.POST.get('phone')
-        desc = request.POST.get('desc')
-        contact = Contact(name=name, email=email, phone=phone, desc=desc, date = datetime.today())
-        contact.save()
-        messages.success(request, 'Your message has been sent!')
-    return render(request, 'contact.html')
- 
 
+# PDF to Excel Conversion
+def pdf_to_excel(request):
+    if request.method == 'POST' and request.FILES['pdf_file']:
+        pdf_file = request.FILES['pdf_file']
+        try:
+            # Extract text from PDF
+            pdf_reader = PdfReader(pdf_file)
+            data = []
+            for page in pdf_reader.pages:
+                data.append(page.extract_text())
+
+            # Create DataFrame and save to Excel
+            df = pd.DataFrame({'Content': data})
+            output = BytesIO()
+            writer = pd.ExcelWriter(output, engine='xlsxwriter')
+            df.to_excel(writer, index=False, sheet_name='PDF Content')
+            writer.close()
+
+            # Send Excel file as a response
+            response = HttpResponse(
+                output.getvalue(),
+                content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+            )
+            response['Content-Disposition'] = 'attachment; filename="converted.xlsx"'
+            return response
+        except Exception as e:
+            return HttpResponse(f"Error: {e}")
+    return render(request, 'pdf_to_excel.html')

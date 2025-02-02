@@ -7,9 +7,24 @@
   <title>Image Converter</title>
   <link rel="icon" href="{% static 'images/ConvertEase-bg.png' %}" type="image/x-icon">
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @media (max-width: 768px) {
+      .dropdown-menu {
+        position: relative; /* Ensure dropdown is positioned correctly */
+        z-index: 10; /* Bring dropdown above other elements */
+        color: white; /* Ensure text color is white */
+      }
+    }
+    @media (min-width: 768px) {
+      .dropdown-menu {
+        position: absolute; /* Ensure dropdown is positioned correctly */
+        z-index: 10; /* Bring dropdown above other elements */
+        color: white; /* Ensure text color is white */
+      }
+    }
+  </style>
 </head>
 <body class="bg-gray-100">
-
   <!-- Navbar -->
   <nav class="bg-gradient-to-r from-black to-blue-500 shadow-lg">
     <div class="container mx-auto px-4">
@@ -18,14 +33,12 @@
         <a href="/" class="flex items-center justify-center w-full md:w-auto">
           <img src="{% static 'images/ConvertEase-bg.png' %}" alt="Logo" class="h-12">
         </a>
-
         <!-- Hamburger Menu for Mobile -->
         <button id="menu-btn" class="text-white focus:outline-none md:hidden">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
           </svg>
         </button>
-
         <!-- Desktop Navigation Links -->
         <div class="hidden md:flex items-center space-x-12">
           <!-- Dropdown for Image Converters -->
@@ -36,15 +49,14 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </button>
-            <div id="dropdown-menu" 
-
-                 class="absolute left-0 w-48 mt-2 bg-[#1c3d73] text-white shadow-md rounded-lg hidden">
-              <a href="imgtopdf" class="block px-6 py-3 text-sm font-medium hover:bg-[#284b8a] transition-colors duration-200">Image to PDF</a>
+            <div id="dropdown-menu" class="dropdown-menu absolute left-0 w-48 mt-2 bg-[#1c3d73] text-white shadow-md rounded-lg hidden">
+            
               <a href="webptopng" class="block px-6 py-3 text-sm font-medium hover:bg-[#284b8a] transition-colors duration-200">Any to PNG</a>
               <a href="pngtowebp" class="block px-6 py-3 text-sm font-medium hover:bg-[#284b8a] transition-colors duration-200">Any to WebP</a>
               <a href="pngtojpg" class="block px-6 py-3 text-sm font-medium hover:bg-[#284b8a] transition-colors duration-200">Any to JPG</a>
               <a href="pdf_to_word" class="block px-6 py-3 text-sm font-medium hover:bg-[#284b8a] transition-colors duration-200">PDF to Word</a>
-              <a href="pdf_to_ppt" class="block px-6 py-3 text-sm font-medium hover:bg-[#284b8a] transition-colors duration-200">PDF to Ptt</a>
+              <a href="pdf_to_ppt" class="block px-6 py-3 text-sm font-medium hover:bg-[#284b8a] transition-colors duration-200">PDF to PPT</a>
+              <a href="pdf_to_excel" class="block px-6 py-3 text-sm font-medium hover:bg-[#284b8a] transition-colors duration-200">PDF to Excel</a>
             </div>
           </div>
           <a href="blogs" class="text-white hover:text-teal-300 transition duration-300">Blog</a>
@@ -53,7 +65,6 @@
           <a href="contact" class="text-white hover:text-teal-300 transition duration-300">Contact</a>
         </div>
       </div>
-
       <!-- Mobile Menu -->
       <div id="mobile-menu" class="hidden flex flex-col items-start space-y-4 py-4 md:hidden">
         <div class="relative group w-full">
@@ -61,11 +72,12 @@
             Image Converters
           </button>
           <div class="pl-4">
-            <a href="imgtopdf" class="block px-6 py-3 text-sm font-medium hover:bg-[#284b8a] transition-colors duration-200">Image to PDF</a>
-            <a href="webptopng" class="block px-6 py-3 text-sm font-medium hover:bg-[#284b8a] transition-colors duration-200">Any to PNG</a>
-            <a href="pngtowebp" class="block px-6 py-3 text-sm font-medium hover:bg-[#284b8a] transition-colors duration-200">Any to WebP</a>
-            <a href="pngtojpg" class="block px-6 py-3 text-sm font-medium hover:bg-[#284b8a] transition-colors duration-200">Any to JPG</a> 
-            <a href="pdf_to_word" class="block px-6 py-3 text-sm font-medium hover:bg-[#284b8a] transition-colors duration-200">PDF to Word</a> 
+            
+            <a href="webptopng" class="block px-6 py-3 text-white font-medium hover:bg-[#284b8a] transition-colors duration-200">Any to PNG</a>
+            <a href="pngtowebp" class="block px-6 py-3 text-white font-medium hover:bg-[#284b8a] transition-colors duration-200">Any to WebP</a>
+            <a href="pngtojpg" class="block px-6 py-3 text-white font-medium hover:bg-[#284b8a] transition-colors duration-200">Any to JPG</a>
+            <a href="pdf_to_word" class="block px-6 py-3 text-white font-medium hover:bg-[#284b8a] transition-colors duration-200">PDF to Word</a>
+            <a href="pdf_to_excel" class="block px-6 py-3 text-white font-medium hover:bg-[#284b8a] transition-colors duration-200">pdf_to_excel</a>
           </div>
         </div>
         <a href="blogs" class="text-white hover:text-teal-300 transition duration-300 px-4">Blog</a>
@@ -75,7 +87,6 @@
       </div>
     </div>
   </nav>
-
   <!-- Script for Mobile Toggle and Dropdown -->
   <script>
     const menuBtn = document.getElementById('menu-btn');
@@ -100,15 +111,13 @@
       }
     });
   </script>
-
+<br>
   <main>
     {% block content %}
     <!-- Page-specific content goes here -->
     {% endblock %}
   </main>
-
   <!-- Footer -->
   {% include "footer.html" %}
-
 </body>
 </html>

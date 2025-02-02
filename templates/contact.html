@@ -12,6 +12,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
   <script>
+    
     function initMap() {
       const location = { lat: -34.397, lng: 150.644 };
       const map = new google.maps.Map(document.getElementById("map"), {
@@ -64,13 +65,15 @@
     <div class="flex flex-col md:flex-row gap-16">
       <!-- Image Section (Left Hand Side) -->
       <div class="md:w-1/2 scale-up">
-        <img src="{% static 'images/contact.jpg' %}" alt="Company Location" class="w-full h-auto rounded-lg shadow-xl transform hover:scale-105 transition-all duration-300">
+        <img src="{% static 'images/contact.jpg' %}" alt="Company Location" class="w-full h-full rounded-lg shadow-xl transform hover:scale-105 transition-all duration-300">
       </div>
 
       <!-- Contact Form (Right Hand Side) -->
       <div class="md:w-1/2 bg-white text-gray-900 p-8 rounded-lg shadow-xl border-4 border-indigo-600 slide-in">
         <h2 class="text-3xl font-semibold mb-6 text-indigo-700">Get in Touch</h2>
-        <form action="#" method="POST" id="contactForm">
+        <form action="/contact" method="POST" id="contactForm">
+
+          {% csrf_token %}
           <div class="mb-4">
             <label for="name" class="block text-sm font-medium text-indigo-600">Full Name</label>
             <input type="text" id="name" name="name" class="w-full mt-2 px-4 py-2 border-2 border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500" required>
@@ -87,7 +90,16 @@
         </form>
       </div>
     </div>
-
+    {% if messages %}
+  <script>
+    window.onload = function() {
+      {% for message in messages %}
+      alert("{{ message }}");
+      {% endfor %}
+    }
+  </script>
+  {% endif %}
+  
     <div class="mt-16 text-center text-black fade-in">
       <p class="text-lg">Feel free to reach out to us at:</p>
       <p class="text-xl font-semibold">contact@yourcompany.com</p>

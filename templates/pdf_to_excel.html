@@ -1,30 +1,29 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="min-h-screen bg-gradient-to-b from-[#fff7f0] to-[#f0f5ff] py-10">
+<div class="min-h-screen bg-gradient-to-b from-[#f7fcff] to-[#eaf3ff] py-10">
     <div class="max-w-4xl mx-auto bg-gradient-to-b from-white to-[#f9f9f9] rounded-xl shadow-lg p-8">
 
         <!-- Page Title -->
         <div class="text-center mb-8">
             <img 
-                src="{% static 'images/webp.png' %}" 
+                src="{% static 'images/pdf-to-excel.svg' %}" 
                 alt="Convert Icon" 
                 class="w-20 h-20 mx-auto mb-4"
             />
-            <h1 class="text-4xl font-extrabold text-[#1a73e8]">Convert Images to WebP</h1>
+            <h1 class="text-4xl font-extrabold text-[#1a73e8]">Convert PDF to Excel</h1>
             <p class="text-gray-600 text-lg mt-2">
-                Effortlessly convert your images to WebP format with our simple and reliable tool.
+                Seamlessly transform your PDFs into editable Excel sheets in no time.
             </p>
         </div>
 
         <!-- Upload Form -->
-        <form method="POST" enctype="multipart/form-data" action="" id="upload-form" class="text-center">
+        <form method="POST" enctype="multipart/form-data" class="flex flex-col items-center">
             {% csrf_token %}
-
             <!-- Drag and Drop Section -->
             <div
                 id="drop-zone"
-                class="bg-gradient-to-r from-[#e0f7fa] via-[#e3f2fd] to-[#e1f5fe] border-dashed border-4 border-[#1a73e8] rounded-xl p-8 mb-6 hover:shadow-lg transition relative">
+                class="bg-gradient-to-r from-[#e3f2fd] via-[#e1f5fe] to-[#f0f4fa] border-dashed border-4 border-[#1a73e8] rounded-xl p-8 mb-6 hover:shadow-lg transition relative">
                 <div class="flex flex-col items-center">
                     <div class="bg-gradient-to-br from-[#42a5f5] to-[#64b5f6] p-4 rounded-full mb-4 shadow-lg">
                         <img 
@@ -34,17 +33,15 @@
                         />
                     </div>
                     <p class="text-[#1a73e8] text-lg font-semibold mb-4">
-                        Drag and drop your images here, or click below to upload.
+                        Drag and drop your PDF files here, or click below to upload.
                     </p>
-                    <label class="cursor-pointer">
+                    <label class="block w-full text-center mb-6">
                         <input 
-                            id="file-input" 
-                            type="file" 
-                            name="img" 
-                            accept="image/*" 
-                            multiple 
-                            class="hidden" 
-                            onchange="updateFileList()" 
+                          type="file" 
+                          name="pdf_file" 
+                          accept="application/pdf" 
+                          class="hidden"
+                          id="pdf-input"
                         />
                         <div 
                             class="inline-block px-6 py-3 bg-gradient-to-r from-[#42a5f5] to-[#64b5f6] text-white text-md font-medium rounded-lg hover:from-[#1e88e5] hover:to-[#1976d2] transition shadow-md"
@@ -64,8 +61,8 @@
             <div class="text-center">
                 <button
                     type="submit"
-                    class="w-full sm:w-auto px-10 py-3 bg-gradient-to-r from-[#1e88e5] to-[#1976d2] text-white text-lg font-bold rounded-lg hover:from-[#0d47a1] hover:to-[#1565c0] transition shadow-lg">
-                    Convert to WebP
+                    class="w-full sm:w-auto px-10 py-3 bg-gradient-to-r from-[#bb4717] to-[#4cbb17] text-white text-lg font-bold rounded-lg hover:from-[#0d47a1] hover:to-[#4cbb17] transition shadow-lg">
+                    Convert to Excel
                 </button>
             </div>
         </form>
@@ -82,7 +79,7 @@
                             class="w-16 h-16"
                         />
                     </div>
-                    <span class="ml-3">Quick and efficient image conversion to WebP format.</span>
+                    <span class="ml-3">Fast and accurate PDF to Excel conversions.</span>
                 </li>
                 <li class="flex items-center">
                     <div class="bg-[#42a5f5] p-2 rounded-full">
@@ -92,7 +89,7 @@
                             class="w-16 h-16"
                         />
                     </div>
-                    <span class="ml-3">Maintains high-quality resolution and clarity.</span>
+                    <span class="ml-3">Preserves table structures and formatting.</span>
                 </li>
                 <li class="flex items-center">
                     <div class="bg-[#42a5f5] p-2 rounded-full">
@@ -102,7 +99,7 @@
                             class="w-16 h-16"
                         />
                     </div>
-                    <span class="ml-3">Secure and easy-to-use interface.</span>
+                    <span class="ml-3">Secure and user-friendly interface.</span>
                 </li>
             </ul>
         </div>

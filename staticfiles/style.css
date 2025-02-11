@@ -1,0 +1,160 @@
+/* Navbar Styling */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height : 5%;
+    background: linear-gradient(to right, #000, #2196F3);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 100;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar .logo-container img {
+    width: 40px;
+    height: 40px;
+}
+
+.navbar .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+}
+
+.navbar .nav-links {
+    display: flex;
+    gap: 10px;
+}
+
+.navbar .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.navbar .nav-links a:hover {
+    color: #000;
+}
+
+.dark-mode-toggle {
+    padding: 8px 12px;
+    background: #fff;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.dark-mode-toggle:hover {
+    background: #333;
+    color: #fff;
+}
+
+/* Dropdown Styling */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-btn {
+    background: none; /* Remove background to match navigation bar style */
+    color: white;
+    font-size: 1rem;
+    padding: 10px 15px;
+    cursor: pointer;
+    border: none;
+    transition: color 0.3s ease, background 0.3s ease;
+}
+
+.dropdown-btn:hover {
+    background-color: #6261ff; /* Highlight on hover */
+    color: white;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    background-color: #333;
+    min-width: 200px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Dropdown Menu Item Styling */
+.dropdown-menu li {
+    text-align: left;
+}
+
+.dropdown-menu li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-size: 0.9rem;
+    padding: 10px 15px;
+    transition: background 0.3s ease, color 0.3s ease;
+    border-radius: 4px;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Show Dropdown Menu on Hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* Dropdown Menu Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Style for the entire navigation bar (if needed) */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+.navbar a:hover {
+    background-color: #6261ff;
+    color: white;
+}
+

@@ -2,58 +2,91 @@
 
 {% block content %}
 
-<!-- Features Section -->
-<section id="features" class="py-16 bg-white">
-  <div class="container mx-auto text-center">
-    <h2 class="text-4xl font-extrabold text-gray-800 mb-8 animate__animated animate__fadeIn">Powerful Features</h2>
-    <p class="text-lg text-gray-600 mb-12 animate__animated animate__fadeIn animate__delay-1s">Our app is packed with features that make file conversions fast, easy, and secure.</p>
+<!-- Add custom parallax background effect -->
+{% load static %}
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @keyframes floatSlow {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+  }
+  .animate-float-slow {
+    animation: floatSlow 6s ease-in-out infinite;
+  }
+</style>
+</head>
+<body class="bg-gray-100">
 
-    <div class="grid md:grid-cols-3 sm:grid-cols-1 gap-12">
-      <!-- Feature 1 -->
-      <div class="bg-blue-100 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow transform hover:scale-105 duration-300 hover:bg-indigo-100 animate__animated animate__fadeIn animate__delay-2s">
-        <h3 class="text-2xl font-semibold text-blue-600 mb-4">300+ Formats Supported</h3>
-        <p class="text-gray-700 mb-4">We support over 25600 conversions between more than 300 file formats—more than any other converter.</p>
-        <a href="#" class="text-blue-600 hover:text-blue-800">Learn More</a>
-      </div>
+<section class="relative overflow-hidden min-h-screen py-24 px-6">
+  <!-- Parallax Background -->
+  <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center bg-fixed z-0"></div>
+  <div class="absolute inset-0 bg-blue/30 backdrop-blur-sm z-0"></div>
 
-      <!-- Feature 2 -->
-      <div class="bg-blue-100 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow transform hover:scale-105 duration-300 hover:bg-indigo-100 animate__animated animate__fadeIn animate__delay-3s">
-        <h3 class="text-2xl font-semibold text-blue-600 mb-4">Fast and Easy</h3>
-        <p class="text-gray-700 mb-4">Just drop your files on the page, choose an output format, and click the "Convert" button. We aim to do all conversions in under 1-2 minutes.</p>
-        <a href="#" class="text-blue-600 hover:text-blue-800">Learn More</a>
-      </div>
-
-      <!-- Feature 3 -->
-      <div class="bg-blue-100 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow transform hover:scale-105 duration-300 hover:bg-indigo-100 animate__animated animate__fadeIn animate__delay-4s">
-        <h3 class="text-2xl font-semibold text-blue-600 mb-4">In the Cloud</h3>
-        <p class="text-gray-700 mb-4">All conversions happen in the cloud, so you don't need to worry about using your computer's resources.</p>
-        <a href="#" class="text-blue-600 hover:text-blue-800">Learn More</a>
-      </div>
-    </div>
-
-    <div class="grid md:grid-cols-3 sm:grid-cols-1 gap-12 mt-8">
-      <!-- Feature 4 -->
-      <div class="bg-blue-100 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow transform hover:scale-105 duration-300 hover:bg-indigo-100 animate__animated animate__fadeIn animate__delay-5s">
-        <h3 class="text-2xl font-semibold text-blue-600 mb-4">Custom Settings</h3>
-        <p class="text-gray-700 mb-4">Most conversion types support advanced options. With our video converter, you can adjust quality, aspect ratio, codec, and more.</p>
-        <a href="#" class="text-blue-600 hover:text-blue-800">Learn More</a>
-      </div>
-
-      <!-- Feature 5 -->
-      <div class="bg-blue-100 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow transform hover:scale-105 duration-300 hover:bg-indigo-100 animate__animated animate__fadeIn animate__delay-6s">
-        <h3 class="text-2xl font-semibold text-blue-600 mb-4">Security Guaranteed</h3>
-        <p class="text-gray-700 mb-4">Your privacy is 100% guaranteed. Uploaded files are deleted instantly, and converted files are removed after 24 hours.</p>
-        <a href="#" class="text-blue-600 hover:text-blue-800">Learn More</a>
-      </div>
-
-      <!-- Feature 6 -->
-      <div class="bg-blue-100 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow transform hover:scale-105 duration-300 hover:bg-indigo-100 animate__animated animate__fadeIn animate__delay-7s">
-        <h3 class="text-2xl font-semibold text-blue-600 mb-4">All Devices Supported</h3>
-        <p class="text-gray-700 mb-4">Our browser-based platform works across all devices. No need to download or install any software—just visit and convert!</p>
-        <a href="#" class="text-blue-600 hover:text-blue-800">Learn More</a>
-      </div>
-    </div>
+  <!-- Title -->
+  <div class="relative z-10 text-center text-blue mb-16">
+    <h2 class="text-5xl font-extrabold mb-4 drop-shadow-xl">Our Floating Features</h2>
+    <p class="text-xl drop-shadow-md">Watch our features soar like balloons in the sky.</p>
   </div>
-</section>
 
-{% endblock %}
+  <!-- Feature Cards -->
+  <div class="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+    
+    <!-- Feature 1 -->
+    <div class="bg-white/20 backdrop-blur-lg p-6 rounded-3xl shadow-2xl text-center text-white animate-float-slow border border-white/30 hover:scale-105 transition-transform duration-500">
+      <img src="https://img.icons8.com/color/96/pdf.png" alt="PDF" class="w-16 h-16 mx-auto mb-4" />
+      <h3 class="text-2xl font-bold mb-2">Image to PDF</h3>
+      <p>Convert images into high-quality PDF documents for business or personal use.</p>
+    </div>
+
+    <!-- Feature 2 -->
+    <div class="bg-white/20 backdrop-blur-lg p-6 rounded-3xl shadow-2xl text-center text-white animate-float-slow border border-white/30 hover:scale-105 transition-transform duration-500">
+      <img src="https://img.icons8.com/color/96/png.png" alt="PNG" class="w-16 h-16 mx-auto mb-4" />
+      <h3 class="text-2xl font-bold mb-2">Image to PNG</h3>
+      <p>Convert your images to PNG with transparent background support.</p>
+    </div>
+
+    <!-- Feature 3 -->
+    <div class="bg-white/20 backdrop-blur-lg p-6 rounded-3xl shadow-2xl text-center text-white animate-float-slow border border-white/30 hover:scale-105 transition-transform duration-500">
+      <img src="https://img.icons8.com/color/96/jpg.png" alt="JPG" class="w-16 h-16 mx-auto mb-4" />
+      <h3 class="text-2xl font-bold mb-2">Image to JPG</h3>
+      <p>Optimize image size while keeping quality intact for easier sharing.</p>
+    </div>
+
+    <!-- Feature 4 -->
+    <div class="bg-white/20 backdrop-blur-lg p-6 rounded-3xl shadow-2xl text-center text-white animate-float-slow border border-white/30 hover:scale-105 transition-transform duration-500">
+      <img src="https://tse1.mm.bing.net/th?id=OIP.0Hg-E47WB8on3hVzP9bNdQHaKS&pid=Api" alt="WebP" class="w-16 h-16 mx-auto mb-4" />
+      <h3 class="text-2xl font-bold mb-2">Image to WebP</h3>
+      <p>Compress images without losing quality for faster web performance.</p>
+    </div>
+
+    <!-- Feature 5 -->
+    <div class="bg-white/20 backdrop-blur-lg p-6 rounded-3xl shadow-2xl text-center text-white animate-float-slow border border-white/30 hover:scale-105 transition-transform duration-500">
+      <img src="https://img.icons8.com/color/96/share.png" alt="Sharing" class="w-16 h-16 mx-auto mb-4" />
+      <h3 class="text-2xl font-bold mb-2">Download & Share</h3>
+      <p>Instantly download or share your converted images via link or device.</p>
+    </div>
+
+    <!-- Feature 6 -->
+    <div class="bg-white/20 backdrop-blur-lg p-6 rounded-3xl shadow-2xl text-center text-white animate-float-slow border border-white/30 hover:scale-105 transition-transform duration-500">
+      <img src="https://img.icons8.com/color/96/privacy.png" alt="Secure" class="w-16 h-16 mx-auto mb-4" />
+      <h3 class="text-2xl font-bold mb-2">Secure Conversion</h3>
+      <p>Your data is never stored. All files are processed and deleted instantly.</p>
+    </div>
+
+    <!-- Feature 7 -->
+    <div class="bg-white/20 backdrop-blur-lg p-6 rounded-3xl shadow-2xl text-center text-white animate-float-slow border border-white/30 hover:scale-105 transition-transform duration-500">
+      <img src="https://img.icons8.com/color/96/speed.png" alt="Fast" class="w-16 h-16 mx-auto mb-4" />
+      <h3 class="text-2xl font-bold mb-2">Lightning Fast</h3>
+      <p>Convert your files in seconds with our high-performance engine.</p>
+    </div>
+
+    <!-- Feature 8 -->
+    <div class="bg-white/20 backdrop-blur-lg p-6 rounded-3xl shadow-2xl text-center text-white animate-float-slow border border-white/30 hover:scale-105 transition-transform duration-500">
+      <img src="https://img.icons8.com/color/96/smartphone.png" alt="Mobile" class="w-16 h-16 mx-auto mb-4" />
+      <h3 class="text-2xl font-bold mb-2">Mobile Friendly</h3>
+      <p>Use the converter easily from mobile, tablet, or desktop devices.</p>
+    </div>
+
+  </div>
+</section>{% endblock %}

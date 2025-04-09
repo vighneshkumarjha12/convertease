@@ -23,6 +23,10 @@ from django.core.mail import send_mail
 from django.conf import settings
 from .models import Contact
 from .forms import ContactForm
+import openai
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
 
 
 def home(request):
@@ -277,3 +281,22 @@ def pdf_to_excel(request):
         except Exception as e:
             return HttpResponse(f"Error: {e}")
     return render(request, 'pdf_to_excel.html')
+
+
+openai.api_key = "your_openai_api_key"
+
+@csrf_exempt
+def chatbot_response(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+        user_message = data.get("message", "")
+
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[{"role": "user", "content": user_message}]
+        )
+
+        bot_reply = response["choices"][0]["message"]["content"]
+        return JsonResponse({"reply": bot_reply})
+
+    return JsonResponse({"error": "Invalid request"}, status=400)

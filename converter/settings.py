@@ -27,7 +27,7 @@ SECRET_KEY = 'your-secret-key'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True  # Set to False in production
 
-ALLOWED_HOSTS = []  # Add your domain or IP here if deploying to production
+ALLOWED_HOSTS = ['*']  # Add your domain or IP here if deploying to production
 
 # Application definition
 INSTALLED_APPS = [

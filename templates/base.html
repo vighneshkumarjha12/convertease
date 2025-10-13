@@ -15,6 +15,7 @@
         color: white; /* Ensure text color is white */
       }
     }
+    
     @media (min-width: 768px) {
       .dropdown-menu {
         position: absolute; /* Ensure dropdown is positioned correctly */
@@ -31,7 +32,7 @@
       <div class="flex items-center justify-between h-16">
         <!-- Logo Section -->
         <a href="/" class="flex items-center justify-center w-full md:w-auto">
-          <img src="{% static 'images/ConvertEase-bg.png' %}" alt="Logo" class="h-12">
+          <img src="{% static 'images/newLogo.png' %}" alt="Logo" class="h-20  w-auto">
         </a>
         <!-- Hamburger Menu for Mobile -->
         <button id="menu-btn" class="text-white focus:outline-none md:hidden">
@@ -49,15 +50,19 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </button>
-            <div id="dropdown-menu" class="dropdown-menu absolute left-0 w-48 mt-2 bg-[#1c3d73] text-white shadow-md rounded-lg hidden">
-            
-              <a href="webptopng" class="block px-6 py-3 text-sm font-medium hover:bg-[#284b8a] transition-colors duration-200">Any to PNG</a>
-              <a href="pngtowebp" class="block px-6 py-3 text-sm font-medium hover:bg-[#284b8a] transition-colors duration-200">Any to WebP</a>
-              <a href="pngtojpg" class="block px-6 py-3 text-sm font-medium hover:bg-[#284b8a] transition-colors duration-200">Any to JPG</a>
-              <a href="pdf_to_word" class="block px-6 py-3 text-sm font-medium hover:bg-[#284b8a] transition-colors duration-200">PDF to Word</a>
-              <a href="pdf_to_ppt" class="block px-6 py-3 text-sm font-medium hover:bg-[#284b8a] transition-colors duration-200">PDF to PPT</a>
-              <a href="pdf_to_excel" class="block px-6 py-3 text-sm font-medium hover:bg-[#284b8a] transition-colors duration-200">PDF to Excel</a>
-            </div>
+          <!-- Dropdown Menu -->
+<div id="dropdown-menu"
+     class="absolute left-0 w-50 mt-2 bg-[#1c3d73] text-white shadow-md rounded-lg hidden group-hover:block z-50 py-2">
+  <a href="webptopng" class="block px-6 py-2 text-sm font-medium hover:bg-[#284b8a] transition duration-200">Any to PNG</a>
+  <a href="pngtowebp" class="block px-6 py-2 text-sm font-medium hover:bg-[#284b8a] transition duration-200">Any to WebP</a>
+  <a href="pngtojpg" class="block px-6 py-2 text-sm font-medium hover:bg-[#284b8a] transition duration-200">Any to JPG</a>
+  <a href="pdf_to_word" class="block px-6 py-2 text-sm font-medium hover:bg-[#284b8a] transition duration-200">PDF to Word</a>
+  <a href="pdf_to_ppt" class="block px-6 py-2 text-sm font-medium hover:bg-[#284b8a] transition duration-200">PDF to PPT</a>
+  <a href="pdf_to_excel" class="block px-6 py-2 text-sm font-medium hover:bg-[#284b8a] transition duration-200">PDF to Excel</a>
+  <a href="remove_background_view" class="block px-6 py-2 text-sm font-medium hover:bg-[#284b8a] transition duration-200">Remove Background</a>
+  <a href="add-background" class="block px-6 py-2 text-sm font-medium hover:bg-[#284b8a] transition duration-200">Add Background</a>
+</div>
+
           </div>
           <a href="blogs" class="text-white hover:text-teal-300 transition duration-300">Blog</a>
           <a href="services" class="text-white hover:text-teal-300 transition duration-300">Features</a>
@@ -78,6 +83,10 @@
             <a href="pngtojpg" class="block px-6 py-3 text-white font-medium hover:bg-[#284b8a] transition-colors duration-200">Any to JPG</a>
             <a href="pdf_to_word" class="block px-6 py-3 text-white font-medium hover:bg-[#284b8a] transition-colors duration-200">PDF to Word</a>
             <a href="pdf_to_excel" class="block px-6 py-3 text-white font-medium hover:bg-[#284b8a] transition-colors duration-200">pdf_to_excel</a>
+            <a href="remove_background_view" class="block px-6 py-3 text-sm font-medium hover:bg-[#284b8a] transition-colors duration-200"> remove background</a>
+
+            <a href="add-background" class="block px-6 py-3 text-white font-medium hover:bg-[#284b8a] transition-colors duration-200">Add Background to Image</a>
+            
           </div>
         </div>
         <a href="blogs" class="text-white hover:text-teal-300 transition duration-300 px-4">Blog</a>

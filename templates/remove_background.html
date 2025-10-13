@@ -1,0 +1,153 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="min-h-screen bg-gradient-to-b from-[#fff7f0] to-[#f0f5ff] py-10">
+    <div class="max-w-4xl mx-auto bg-gradient-to-b from-white to-[#f9f9f9] rounded-xl shadow-lg p-8">
+
+        <!-- Page Title -->
+        <div class="text-center mb-8">
+            <img 
+                src="{% static 'images/remove-bg.jpeg' %}" 
+                alt="Remove BG Icon" 
+                class="w-40 h-25 mx-auto mb-4 rounded-md"
+            />
+            <h1 class="text-4xl font-extrabold text-[#1a73e8]">Remove Background from Images</h1>
+            <p class="text-gray-600 text-lg mt-2">
+                Instantly remove backgrounds from your images while preserving high quality.
+            </p>
+        </div>
+
+        <!-- Upload Form -->
+        <form method="POST" enctype="multipart/form-data" action="" id="upload-form" class="text-center">
+            {% csrf_token %}
+
+            <!-- Drag and Drop Section -->
+            <div
+                id="drop-zone"
+                class="bg-gradient-to-r from-[#fce4ec] via-[#f3e5f5] to-[#e8eaf6] border-dashed border-4 border-[#ec407a] rounded-xl p-8 mb-6 hover:shadow-lg transition relative">
+                <div class="flex flex-col items-center">
+                    <div class="bg-gradient-to-br from-[#ec407a] to-[#ab47bc] p-4 rounded-full mb-4 shadow-lg">
+                        <img 
+                            src="{% static 'images/dw.gif' %}" 
+                            alt="Upload Icon" 
+                            class="w-16 h-16"
+                        />
+                    </div>
+                    <p class="text-[#8e24aa] text-lg font-semibold mb-4">
+                        Drag and drop your images here, or click below to upload.
+                    </p>
+                    <label class="cursor-pointer">
+                        <input 
+                            id="file-input" 
+                            type="file" 
+                            name="img" 
+                            accept="image/*" 
+                            multiple 
+                            class="hidden" 
+                            onchange="updateFileList()" 
+                        />
+                        <div 
+                            class="inline-block px-6 py-3 bg-gradient-to-r from-[#ec407a] to-[#ab47bc] text-white text-md font-medium rounded-lg hover:from-[#d81b60] hover:to-[#8e24aa] transition shadow-md"
+                        >
+                            Browse Files
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- File List Section -->
+            <div id="file-list" class="text-gray-700 text-sm mb-6 text-center">
+                <!-- Dynamically generated file names will appear here -->
+            </div>
+
+            <!-- Remove Background Button -->
+            <div class="text-center">
+                <button
+                    type="submit"
+                    class="w-full sm:w-auto px-10 py-3 bg-gradient-to-r from-[#ec407a] to-[#8e24aa] text-white text-lg font-bold rounded-lg hover:from-[#c2185b] hover:to-[#6a1b9a] transition shadow-lg">
+                    Remove Background
+                </button>
+            </div>
+        </form>
+
+        <!-- Benefits Section -->
+        <div class="mt-10 bg-gradient-to-r from-[#fce4ec] via-[#f3e5f5] to-[#e8eaf6] p-6 rounded-xl shadow-md">
+            <h2 class="text-2xl font-bold text-[#ec407a] mb-6 text-center">Why Use Our Background Remover?</h2>
+            <ul class="space-y-4 text-gray-700">
+                <li class="flex items-center">
+                    <div class="bg-[#ec407a] p-2 rounded-full">
+                        <img 
+                            src="{% static 'images/speed.gif' %}" 
+                            alt="Speed Icon" 
+                            class="w-16 h-16"
+                        />
+                    </div>
+                    <span class="ml-3">Fast and AI-powered background removal for all images.</span>
+                </li>
+                <li class="flex items-center">
+                    <div class="bg-[#ec407a] p-2 rounded-full">
+                        <img 
+                            src="{% static 'images/high_quality.gif' %}" 
+                            alt="Quality Icon" 
+                            class="w-16 h-16"
+                        />
+                    </div>
+                    <span class="ml-3">High-quality cutouts with clean edges and details preserved.</span>
+                </li>
+                <li class="flex items-center">
+                    <div class="bg-[#ec407a] p-2 rounded-full">
+                        <img 
+                            src="{% static 'images/security.gif' %}" 
+                            alt="Security Icon" 
+                            class="w-16 h-16"
+                        />
+                    </div>
+                    <span class="ml-3">Your files remain private and are never shared.</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript for Drag and Drop -->
+<script>
+    const fileInput = document.getElementById("file-input");
+    const dropZone = document.getElementById("drop-zone");
+    const fileList = document.getElementById("file-list");
+
+    dropZone.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dropZone.classList.add("border-pink-500", "bg-pink-50");
+    });
+
+    dropZone.addEventListener("dragleave", () => {
+        dropZone.classList.remove("border-pink-500", "bg-pink-50");
+    });
+
+    dropZone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        dropZone.classList.remove("border-pink-500", "bg-pink-50");
+        fileInput.files = e.dataTransfer.files;
+        updateFileList();
+    });
+
+    fileInput.addEventListener("change", updateFileList);
+
+    function updateFileList() {
+        fileList.innerHTML = "";
+        if (fileInput.files.length === 0) {
+            fileList.textContent = "No files selected.";
+            return;
+        }
+        for (const file of fileInput.files) {
+            const fileItem = document.createElement("div");
+            fileItem.textContent = `✔️ ${file.name}`;
+            fileItem.className = "mb-2 text-green-700";
+            fileList.appendChild(fileItem);
+        }
+    }
+</script>
+{% endblock %}
+
+

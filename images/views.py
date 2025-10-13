@@ -27,6 +27,74 @@ import openai
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
+from rembg import remove
+from django.core.files.base import ContentFile
+from django.core.files.storage import default_storage
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework.parsers import MultiPartParser
+
+class RemoveBackgroundAPI(APIView):
+    parser_classes = [MultiPartParser]
+
+    def post(self, request):
+        try:
+            image_file = request.FILES['image']
+            input_image = Image.open(image_file)
+
+            # Remove background
+            output_image_data = remove(image_file.read())
+
+            # Save the new image
+            output_io = BytesIO(output_image_data)
+            file_name = f'removebg/removed_{image_file.name}'
+            saved_file = default_storage.save(file_name, ContentFile(output_io.getvalue()))
+
+            image_url = request.build_absolute_uri(default_storage.url(saved_file))
+
+            return Response({'status': 'success', 'removed_bg_url': image_url}, status=status.HTTP_200_OK)
+
+        except Exception as e:
+            return Response({'status': 'error', 'message': str(e)}, status=status.HTTP_400_BAD_REQUEST)
+
+
+def add_background(request):
+    if request.method == 'POST':
+        image = request.FILES.get('image')
+        background_type = request.POST.get('background_type')
+        bg_color = request.POST.get('bg_color', '#FFFFFF')
+        bg_image = request.FILES.get('bg_image')
+        position = request.POST.get('position', 'center')
+
+        original = Image.open(image).convert("RGBA")
+
+        # Create background
+        if background_type == 'color':
+            background = Image.new('RGBA', original.size, bg_color)
+        elif background_type == 'image' and bg_image:
+            background = Image.open(bg_image).convert("RGBA").resize(original.size)
+        else:
+            return HttpResponse("Invalid input", status=400)
+
+        # Position logic
+        x, y = 0, 0
+        if position == 'center':
+            x = (background.width - original.width) // 2
+            y = (background.height - original.height) // 2
+        elif position == 'bottom-right':
+            x = background.width - original.width
+            y = background.height - original.height
+
+        background.paste(original, (x, y), original)
+
+        buffer = io.BytesIO()
+        background.save(buffer, format='PNG')
+        buffer.seek(0)
+
+        return HttpResponse(buffer, content_type='image/png')
+
+    return render(request, 'add_background.html')
 
 
 def home(request):
@@ -95,7 +163,20 @@ def pdf_to_ppt(request):
     return render(request, 'pdf_to_ppt.html')
 
 
-
+def remove_background_view(request):
+    if request.method == "POST" and request.FILES.get("img"):
+        uploaded_file = request.FILES["img"]
+        input_image = Image.open(uploaded_file)
+        
+        output = remove(input_image)
+        buffer = io.BytesIO()
+        output.save(buffer, format="PNG")
+        buffer.seek(0)
+        
+        response = HttpResponse(buffer, content_type="image/png")
+        response["Content-Disposition"] = f'attachment; filename="removed_bg.png"'
+        return response 
+    return render(request, 'remove_background.html')
 
 def pdf_to_word(request):
     """Convert a PDF file to a Word document."""

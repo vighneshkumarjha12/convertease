@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto bg-gradient-to-b from-[#fff7f0] to-[#f0f5ff] rounded-xl shadow-lg p-8 mt-10">
+    <div class="text-center mb-8">
+        <img 
+        src="{% static 'images/add_bg.jpeg' %}" 
+        alt="Remove BG Icon" 
+        class="w-40 h-25 mx-auto mb-4 rounded-md"
+    />
+    
+        <h1 class="text-4xl font-extrabold text-[#c9302c]">Add Background to Image</h1>
+        <p class="text-gray-700 text-lg mt-2">
+            Customize your image with solid colors or background images.
+        </p>
+    </div>
+
+    <form method="POST" enctype="multipart/form-data" class="text-center">
+        {% csrf_token %}
+        <!-- Upload Image -->
+        <div class="bg-gradient-to-r from-[#ffe6e6] via-[#ffe6cc] to-[#ffcc99] border-dashed border-4 border-[#ff704d] rounded-xl p-8 mb-6 hover:shadow-lg transition">
+            <p class="text-[#c9302c] text-lg font-semibold mb-4">Upload Your Image</p>
+            <input type="file" name="image" accept="image/*" required class="block mx-auto mb-4" />
+        </div>
+
+        <!-- Background Options -->
+        <div class="bg-[#fff3e0] p-6 rounded-lg shadow-md text-left mb-6">
+            <label class="block font-semibold text-[#d9534f] mb-2">Choose Background Type:</label>
+            <select name="background_type" id="bg_type" onchange="toggleBG()" class="w-full border rounded-lg p-2 mb-4">
+                <option value="color">Solid Color</option>
+                <option value="image">Background Image</option>
+            </select>
+
+            <!-- Color Picker -->
+            <div id="color-picker">
+                <label class="block mb-1 font-medium text-sm text-gray-700">Select Background Color:</label>
+                <input type="color" name="bg_color" value="#ffffff" class="w-16 h-10">
+            </div>
+
+            <!-- Background Image Upload -->
+            <div id="image-picker" style="display:none;">
+                <label class="block mb-1 font-medium text-sm text-gray-700">Upload Background Image:</label>
+                <input type="file" name="bg_image" accept="image/*">
+            </div>
+        </div>
+
+        <!-- Position Options -->
+        <div class="mb-6">
+            <label class="block font-semibold text-[#d9534f] mb-2">Image Position on Background:</label>
+            <select name="position" class="w-full border rounded-lg p-2">
+                <option value="center">Center</option>
+                <option value="bottom-right">Bottom Right</option>
+            </select>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit"
+            class="w-full px-6 py-3 bg-gradient-to-r from-[#f0ad4e] to-[#d9534f] text-white text-lg font-bold rounded-lg hover:from-[#ec971f] hover:to-[#c9302c] transition shadow-lg">
+            Apply Background
+        </button>
+    </form>
+</div>
+
+<script>
+    function toggleBG() {
+        const type = document.getElementById("bg_type").value;
+        document.getElementById("color-picker").style.display = type === "color" ? "block" : "none";
+        document.getElementById("image-picker").style.display = type === "image" ? "block" : "none";
+    }
+</script>
+{% endblock %}

@@ -1,16 +1,13 @@
-from django.shortcuts import render, HttpResponse ,redirect
+from django.shortcuts import render, HttpResponse, redirect
 from PIL import Image
 import img2pdf
 import io
 import os
-from django.contrib.auth import logout, authenticate, login 
 from django.http import HttpResponse
 import pdfplumber
 from docx import Document
 from pptx import Presentation
 from pptx.util import Inches
-from pdf2image import convert_from_bytes  # Library to convert PDF to images (install with pip install pdf2image)
-from pdf2image import convert_from_path
 import fitz  # PyMuPDF
 from pptx.util import Pt
 from pptx.enum.text import PP_ALIGN
@@ -23,40 +20,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from .models import Contact
 from .forms import ContactForm
-import openai
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-import json
 from rembg import remove
-from django.core.files.base import ContentFile
-from django.core.files.storage import default_storage
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
-from rest_framework.parsers import MultiPartParser
-
-class RemoveBackgroundAPI(APIView):
-    parser_classes = [MultiPartParser]
-
-    def post(self, request):
-        try:
-            image_file = request.FILES['image']
-            input_image = Image.open(image_file)
-
-            # Remove background
-            output_image_data = remove(image_file.read())
-
-            # Save the new image
-            output_io = BytesIO(output_image_data)
-            file_name = f'removebg/removed_{image_file.name}'
-            saved_file = default_storage.save(file_name, ContentFile(output_io.getvalue()))
-
-            image_url = request.build_absolute_uri(default_storage.url(saved_file))
-
-            return Response({'status': 'success', 'removed_bg_url': image_url}, status=status.HTTP_200_OK)
-
-        except Exception as e:
-            return Response({'status': 'error', 'message': str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
 
 def add_background(request):
@@ -210,9 +174,6 @@ def pdf_to_word(request):
 
     return render(request, 'pdf_to_word.html')
 
-def services(request):
-    return render(request, 'service.html')
-
 def faq(request):
     return render(request, 'faq.html')
 
@@ -364,20 +325,3 @@ def pdf_to_excel(request):
     return render(request, 'pdf_to_excel.html')
 
 
-openai.api_key = "your_openai_api_key"
-
-@csrf_exempt
-def chatbot_response(request):
-    if request.method == "POST":
-        data = json.loads(request.body)
-        user_message = data.get("message", "")
-
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
-            messages=[{"role": "user", "content": user_message}]
-        )
-
-        bot_reply = response["choices"][0]["message"]["content"]
-        return JsonResponse({"reply": bot_reply})
-
-    return JsonResponse({"error": "Invalid request"}, status=400)

@@ -2,101 +2,125 @@
 
 {% load static %}
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-  rel="stylesheet"
-/>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://kit.fontawesome.com/a076d05399.js"></script> <!-- Font Awesome for social icons -->
   <title>Modern Footer</title>
   <style>
     body {
-      background-color: #0f172a; /* Navy background to match the website */
+      background-color: #0f172a;
+      /* Navy background to match the website */
     }
-    footer h3, footer p, footer a {
-      color: white; /* Uniform white text */
+
+    footer h3,
+    footer p,
+    footer a {
+      color: white;
+      /* Uniform white text */
       transition: color 0.2s ease-in-out;
     }
+
     footer a:hover {
-      color:rgb(82, 200, 239); /* Cyan hover effect */
+      color: rgb(82, 200, 239);
+      /* Cyan hover effect */
     }
+
     footer input {
-      border: 1px solid #94a3b8; /* Subtle border for inputs */
+      border: 1px solid #94a3b8;
+      /* Subtle border for inputs */
     }
   </style>
 </head>
+
 <body class="text-gray-300">
 
   <section class="bg-gray-100 py-16">
     <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Our Services</h2>
+      <h2 class="text-4xl font-bold text-center text-gray-800 mb-12">Our Services</h2>
 
-        <!-- Responsive grid layout -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-            <!-- Service Item 1 -->
-            <div class="service-card bg-gradient-to-b from-blue-100 to-white p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                <div class="icon-container bg-blue-600 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <img src="{% static 'images/folder.png' %}" alt="Image to PDF" class="w-12 h-13">
-                </div>
-                <h3 class="text-xl font-semibold text-gray-800 text-center mb-4">Image to PDF Conversion</h3>
-                <p class="text-gray-600 text-center">Easily convert images into high-quality PDF files for professional reports, presentations, or compiling multiple images into one document. Perfect for personal or business use.</p>
-            </div>
-
-            <!-- Service Item 2 -->
-            <div class="service-card bg-gradient-to-b from-purple-100 to-white p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                <div class="icon-container bg-purple-600 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <img src="{% static 'images/png-file.png' %}" alt="Compress Images" class="w-12 h-12">
-                </div>
-                <h3 class="text-xl font-semibold text-gray-800 text-center mb-4">Any Image to PNG</h3>
-                <p class="text-gray-600 text-center">Convert images to PNG format while preserving
-                   transparency, ideal for designers and developers needing high-quality visuals with clear backgrounds.</p>
-            </div>
-
-            <!-- Service Item 3 -->
-            <div class="service-card bg-gradient-to-b from-green-100 to-white p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                <div class="icon-container bg-green-600 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <img src="{% static 'images/jpg-file.png' %}" alt="Edit PDFs" class="w-12 h-12">
-                </div>
-                <h3 class="text-xl font-semibold text-gray-800 text-center mb-4">Any Image to JPG</h3>
-                <p class="text-gray-600 text-center">Optimize images with efficient JPG compression, reducing file sizes while maintaining quality. 
-                  Perfect for sharing or saving storage space.</p>
-            </div>
-
-            <!-- Service Item 4 -->
-            <div class="service-card bg-gradient-to-b from-pink-100 to-white p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                <div class="icon-container bg-pink-600 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <img src="{% static 'images/share.png' %}" alt="Download & Sharing" class="w-12 h-12">
-                </div>
-                <h3 class="text-xl font-semibold text-gray-800 text-center mb-4">Image Download & Sharing</h3>
-                <p class="text-gray-600 text-center">Download the converted PDF directly, or share it with others easily.</p>
-            </div>
-
-            <!-- Service Item 5 -->
-            <div class="service-card bg-gradient-to-b from-yellow-100 to-white p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                <div class="icon-container bg-yellow-600 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <img src="{% static 'images/webp.png' %}" alt="Image Conversion" class="w-12 h-12">
-                </div>
-                <h3 class="text-xl font-semibold text-gray-800 text-center mb-4">Any Image to WebP</h3>
-                <p class="text-gray-600 text-center">Convert to WebP for optimized images with high compression, 
-                  boosting website performance and speed without quality loss.</p>
-            </div>
-
-            <!-- Service Item 6 -->
-            <div class="service-card bg-gradient-to-b from-teal-100 to-white p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
-                <div class="icon-container bg-teal-600 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <img src="{% static 'images/protection.png' %}" alt="Cloud Storage Integration" class="w-12 h-12">
-                </div>
-                <h3 class="text-xl font-semibold text-gray-800 text-center mb-4">Secure Conversion</h3>
-                <p class="text-gray-600 text-center">Your privacy is our priority. All files are securely processed and automatically deleted after conversion.</p>
-            </div>
+      <!-- Responsive grid layout -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <!-- Service Item 1 -->
+        <div
+          class="service-card bg-gradient-to-b from-blue-100 to-white p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+          <div
+            class="icon-container bg-blue-600 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+            <img src="{% static 'images/folder.png' %}" alt="Image to PDF" class="w-12 h-13">
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 text-center mb-4">Image to PDF Conversion</h3>
+          <p class="text-gray-600 text-center">Easily convert images into high-quality PDF files for professional
+            reports, presentations, or compiling multiple images into one document. Perfect for personal or business
+            use.</p>
         </div>
+
+        <!-- Service Item 2 -->
+        <div
+          class="service-card bg-gradient-to-b from-purple-100 to-white p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+          <div
+            class="icon-container bg-purple-600 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+            <img src="{% static 'images/png-file.png' %}" alt="Compress Images" class="w-12 h-12">
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 text-center mb-4">Any Image to PNG</h3>
+          <p class="text-gray-600 text-center">Convert images to PNG format while preserving
+            transparency, ideal for designers and developers needing high-quality visuals with clear backgrounds.</p>
+        </div>
+
+        <!-- Service Item 3 -->
+        <div
+          class="service-card bg-gradient-to-b from-green-100 to-white p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+          <div
+            class="icon-container bg-green-600 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+            <img src="{% static 'images/jpg-file.png' %}" alt="Edit PDFs" class="w-12 h-12">
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 text-center mb-4">Any Image to JPG</h3>
+          <p class="text-gray-600 text-center">Optimize images with efficient JPG compression, reducing file sizes while
+            maintaining quality.
+            Perfect for sharing or saving storage space.</p>
+        </div>
+
+        <!-- Service Item 4 -->
+        <div
+          class="service-card bg-gradient-to-b from-pink-100 to-white p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+          <div
+            class="icon-container bg-pink-600 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+            <img src="{% static 'images/share.png' %}" alt="Download & Sharing" class="w-12 h-12">
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 text-center mb-4">Image Download & Sharing</h3>
+          <p class="text-gray-600 text-center">Download the converted PDF directly, or share it with others easily.</p>
+        </div>
+
+        <!-- Service Item 5 -->
+        <div
+          class="service-card bg-gradient-to-b from-yellow-100 to-white p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+          <div
+            class="icon-container bg-yellow-600 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+            <img src="{% static 'images/webp.png' %}" alt="Image Conversion" class="w-12 h-12">
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 text-center mb-4">Any Image to WebP</h3>
+          <p class="text-gray-600 text-center">Convert to WebP for optimized images with high compression,
+            boosting website performance and speed without quality loss.</p>
+        </div>
+
+        <!-- Service Item 6 -->
+        <div
+          class="service-card bg-gradient-to-b from-teal-100 to-white p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all duration-300">
+          <div
+            class="icon-container bg-teal-600 text-white w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+            <img src="{% static 'images/protection.png' %}" alt="Cloud Storage Integration" class="w-12 h-12">
+          </div>
+          <h3 class="text-xl font-semibold text-gray-800 text-center mb-4">Secure Conversion</h3>
+          <p class="text-gray-600 text-center">Your privacy is our priority. All files are securely processed and
+            automatically deleted after conversion.</p>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 
 
   <!-- Footer Section -->
@@ -105,9 +129,11 @@
       <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
         <!-- Contact Section -->
         <div>
-          <a href="/" class="flex items-center space-x-2">
-            <img src="{% static 'images/newLogo.png' %}" alt="Logo" class="h-20 w-auto">
-        
+          <a href="/" class="flex items-center space-x-2 mb-3">
+            <span
+              style="font-family: 'Roboto', sans-serif; font-size: 1.6rem; font-weight: 700; letter-spacing: 0.5px;">
+              <span style="color: #ffffff;">Convert</span><span style="color: #22d3ee;">Ease</span>
+            </span>
           </a>
           <p class="text-lg font-bold">+91-70288 51769</p>
           <p>help@ConvertEase.com</p>
@@ -125,8 +151,8 @@
             <li><a href="pdf_to_word">PDF to Word</a></li>
             <li><a href="pdf_to_ppt">PDF to PowerPoint</a></li>
             <li><a href="pdf_to_excel">PDF to Excel</a></li>
-             <li><a href="remove_background_view">Remove Background</a></li>
-              <li><a href="add-background">Add Background</a></li>
+            <li><a href="remove_background_view">Remove Background</a></li>
+            <li><a href="add-background">Add Background</a></li>
           </ul>
         </div>
 
@@ -153,7 +179,7 @@
         <!-- Newsletter Section -->
         <div>
           <h3 class="font-semibold text-lg mb-4 text-white">Our Other Services</h3>
-          
+
           <ul class="space-y-4 text-left">
             <li class="flex items-center">
               <i class="fas fa-code text-cyan-500 mr-2"></i>
@@ -180,47 +206,45 @@
         <div class="flex justify-center space-x-8">
           <!-- YouTube -->
           <a href="https://www.youtube.com/@vighnesh1370" target="_blank" rel="noopener noreferrer"
-             class="text-white hover:text-red-500 transition transform hover:scale-110 duration-300">
+            class="text-white hover:text-red-500 transition transform hover:scale-110 duration-300">
             <i class="fab fa-youtube text-3xl"></i>
           </a>
           <!-- Pinterest -->
           <a href="#" target="_blank" rel="noopener noreferrer"
-             class="text-white hover:text-red-600 transition transform hover:scale-110 duration-300">
+            class="text-white hover:text-red-600 transition transform hover:scale-110 duration-300">
             <i class="fab fa-pinterest text-3xl"></i>
           </a>
           <!-- Instagram -->
           <a href="#" target="_blank" rel="noopener noreferrer"
-             class="text-white hover:text-pink-500 transition transform hover:scale-110 duration-300">
+            class="text-white hover:text-pink-500 transition transform hover:scale-110 duration-300">
             <i class="fab fa-instagram text-3xl"></i>
           </a>
           <!-- LinkedIn -->
           <a href="#" target="_blank" rel="noopener noreferrer"
-             class="text-white hover:text-blue-600 transition transform hover:scale-110 duration-300">
+            class="text-white hover:text-blue-600 transition transform hover:scale-110 duration-300">
             <i class="fab fa-linkedin text-3xl"></i>
           </a>
         </div>
       </div>
-      
-      
 
-     <!-- Copyright Section -->
-     <div class="mt-12 text-center">
-      <p class="text-sm text-white-500" >
-      <p class="text-sm text-white-500" style="font-size:20px">
-        © 2025 ConvertEase | Made with 
-        <span class="text-red-500" style="font-size: 2rem;">&hearts;</span> 
-       For love ones  |  All rights reserved. 
-      </p>
-    </div>
-    <a href="https://wa.me/917028851769?text=Hello!%20I%20need%20support" target="_blank" 
-   style="position: fixed; bottom: 20px; right: 20px; background: none; border-radius: 50px;">
-   <img src="{% static 'images/whatsapp.svg' %}"
-        alt="WhatsApp"
-        style="width: 50px; height: 50px; ">
-</a>
+
+
+      <!-- Copyright Section -->
+      <div class="mt-12 text-center">
+        <p class="text-sm text-white-500">
+        <p class="text-sm text-white-500" style="font-size:20px">
+          © 2026 ConvertEase | Made with
+          <span class="text-red-500" style="font-size: 2rem;">&hearts;</span>
+          For love ones | All rights reserved.
+        </p>
+      </div>
+      <a href="https://wa.me/917028851769?text=Hello!%20I%20need%20support" target="_blank"
+        style="position: fixed; bottom: 20px; right: 20px; background: none; border-radius: 50px;">
+        <img src="{% static 'images/whatsapp.svg' %}" alt="WhatsApp" style="width: 50px; height: 50px; ">
+      </a>
 
     </div>
-    
+
   </footer>
 
 
@@ -228,6 +252,5 @@
 
 
 </body>
+
 </html>
-
-

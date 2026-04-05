@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,29 +11,38 @@
   <style>
     @media (max-width: 768px) {
       .dropdown-menu {
-        position: relative; /* Ensure dropdown is positioned correctly */
-        z-index: 10; /* Bring dropdown above other elements */
-        color: white; /* Ensure text color is white */
+        position: relative;
+        /* Ensure dropdown is positioned correctly */
+        z-index: 10;
+        /* Bring dropdown above other elements */
+        color: white;
+        /* Ensure text color is white */
       }
     }
-    
+
     @media (min-width: 768px) {
       .dropdown-menu {
-        position: absolute; /* Ensure dropdown is positioned correctly */
-        z-index: 10; /* Bring dropdown above other elements */
-        color: white; /* Ensure text color is white */
+        position: absolute;
+        /* Ensure dropdown is positioned correctly */
+        z-index: 10;
+        /* Bring dropdown above other elements */
+        color: white;
+        /* Ensure text color is white */
       }
     }
   </style>
 </head>
+
 <body class="bg-gray-100">
   <!-- Navbar -->
   <nav class="bg-gradient-to-r from-black to-blue-500 shadow-lg">
     <div class="container mx-auto px-4">
       <div class="flex items-center justify-between h-16">
         <!-- Logo Section -->
-        <a href="/" class="flex items-center justify-center w-full md:w-auto">
-          <img src="{% static 'images/newLogo.png' %}" alt="Logo" class="h-20  w-auto">
+        <a href="/" class="flex items-center space-x-2 mb-3">
+          <span style="font-family: 'Roboto', sans-serif; font-size: 1.6rem; font-weight: 700; letter-spacing: 0.5px;">
+            <span style="color: #ffffff;">Convert</span><span style="color: #22d3ee;">Ease</span>
+          </span>
         </a>
         <!-- Hamburger Menu for Mobile -->
         <button id="menu-btn" class="text-white focus:outline-none md:hidden">
@@ -46,22 +56,33 @@
           <div class="relative group">
             <button id="dropdown-btn" class="text-white hover:text-teal-300 transition duration-300 flex items-center">
               Image Converters
-              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
               </svg>
             </button>
-          <!-- Dropdown Menu -->
-<div id="dropdown-menu"
-     class="absolute left-0 w-50 mt-2 bg-[#1c3d73] text-white shadow-md rounded-lg hidden group-hover:block z-50 py-2">
-  <a href="webptopng" class="block px-6 py-2 text-sm font-medium hover:bg-[#284b8a] transition duration-200">Any to PNG</a>
-  <a href="pngtowebp" class="block px-6 py-2 text-sm font-medium hover:bg-[#284b8a] transition duration-200">Any to WebP</a>
-  <a href="pngtojpg" class="block px-6 py-2 text-sm font-medium hover:bg-[#284b8a] transition duration-200">Any to JPG</a>
-  <a href="pdf_to_word" class="block px-6 py-2 text-sm font-medium hover:bg-[#284b8a] transition duration-200">PDF to Word</a>
-  <a href="pdf_to_ppt" class="block px-6 py-2 text-sm font-medium hover:bg-[#284b8a] transition duration-200">PDF to PPT</a>
-  <a href="pdf_to_excel" class="block px-6 py-2 text-sm font-medium hover:bg-[#284b8a] transition duration-200">PDF to Excel</a>
-  <a href="remove_background_view" class="block px-6 py-2 text-sm font-medium hover:bg-[#284b8a] transition duration-200">Remove Background</a>
-  <a href="add-background" class="block px-6 py-2 text-sm font-medium hover:bg-[#284b8a] transition duration-200">Add Background</a>
-</div>
+            <!-- Dropdown Menu -->
+            <div id="dropdown-menu"
+              class="absolute left-0 w-50 mt-2 bg-[#1c3d73] text-white shadow-md rounded-lg hidden group-hover:block z-50 py-2">
+              <a href="webptopng"
+                class="block px-6 py-2 text-sm font-medium hover:bg-[#284b8a] transition duration-200">Any to PNG</a>
+              <a href="pngtowebp"
+                class="block px-6 py-2 text-sm font-medium hover:bg-[#284b8a] transition duration-200">Any to WebP</a>
+              <a href="pngtojpg"
+                class="block px-6 py-2 text-sm font-medium hover:bg-[#284b8a] transition duration-200">Any to JPG</a>
+              <a href="pdf_to_word"
+                class="block px-6 py-2 text-sm font-medium hover:bg-[#284b8a] transition duration-200">PDF to Word</a>
+              <a href="pdf_to_ppt"
+                class="block px-6 py-2 text-sm font-medium hover:bg-[#284b8a] transition duration-200">PDF to PPT</a>
+              <a href="pdf_to_excel"
+                class="block px-6 py-2 text-sm font-medium hover:bg-[#284b8a] transition duration-200">PDF to Excel</a>
+              <a href="remove_background_view"
+                class="block px-6 py-2 text-sm font-medium hover:bg-[#284b8a] transition duration-200">Remove
+                Background</a>
+              <a href="add-background"
+                class="block px-6 py-2 text-sm font-medium hover:bg-[#284b8a] transition duration-200">Add
+                Background</a>
+            </div>
 
           </div>
           <a href="blogs" class="text-white hover:text-teal-300 transition duration-300">Blog</a>
@@ -77,16 +98,29 @@
             Image Converters
           </button>
           <div class="pl-4">
-            
-            <a href="webptopng" class="block px-6 py-3 text-white font-medium hover:bg-[#284b8a] transition-colors duration-200">Any to PNG</a>
-            <a href="pngtowebp" class="block px-6 py-3 text-white font-medium hover:bg-[#284b8a] transition-colors duration-200">Any to WebP</a>
-            <a href="pngtojpg" class="block px-6 py-3 text-white font-medium hover:bg-[#284b8a] transition-colors duration-200">Any to JPG</a>
-            <a href="pdf_to_word" class="block px-6 py-3 text-white font-medium hover:bg-[#284b8a] transition-colors duration-200">PDF to Word</a>
-            <a href="pdf_to_excel" class="block px-6 py-3 text-white font-medium hover:bg-[#284b8a] transition-colors duration-200">pdf_to_excel</a>
-            <a href="remove_background_view" class="block px-6 py-3 text-sm font-medium hover:bg-[#284b8a] transition-colors duration-200"> remove background</a>
 
-            <a href="add-background" class="block px-6 py-3 text-white font-medium hover:bg-[#284b8a] transition-colors duration-200">Add Background to Image</a>
-            
+            <a href="webptopng"
+              class="block px-6 py-3 text-white font-medium hover:bg-[#284b8a] transition-colors duration-200">Any to
+              PNG</a>
+            <a href="pngtowebp"
+              class="block px-6 py-3 text-white font-medium hover:bg-[#284b8a] transition-colors duration-200">Any to
+              WebP</a>
+            <a href="pngtojpg"
+              class="block px-6 py-3 text-white font-medium hover:bg-[#284b8a] transition-colors duration-200">Any to
+              JPG</a>
+            <a href="pdf_to_word"
+              class="block px-6 py-3 text-white font-medium hover:bg-[#284b8a] transition-colors duration-200">PDF to
+              Word</a>
+            <a href="pdf_to_excel"
+              class="block px-6 py-3 text-white font-medium hover:bg-[#284b8a] transition-colors duration-200">pdf_to_excel</a>
+            <a href="remove_background_view"
+              class="block px-6 py-3 text-sm font-medium hover:bg-[#284b8a] transition-colors duration-200"> remove
+              background</a>
+
+            <a href="add-background"
+              class="block px-6 py-3 text-white font-medium hover:bg-[#284b8a] transition-colors duration-200">Add
+              Background to Image</a>
+
           </div>
         </div>
         <a href="blogs" class="text-white hover:text-teal-300 transition duration-300 px-4">Blog</a>
@@ -120,7 +154,7 @@
       }
     });
   </script>
-<br>
+  <br>
   <main>
     {% block content %}
     <!-- Page-specific content goes here -->
@@ -129,4 +163,5 @@
   <!-- Footer -->
   {% include "footer.html" %}
 </body>
+
 </html>

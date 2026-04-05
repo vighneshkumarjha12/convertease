@@ -4,12 +4,9 @@
 {% block content %}
 <div class="max-w-4xl mx-auto bg-gradient-to-b from-[#fff7f0] to-[#f0f5ff] rounded-xl shadow-lg p-8 mt-10">
     <div class="text-center mb-8">
-        <img 
-        src="{% static 'images/add_bg.jpeg' %}" 
-        alt="Remove BG Icon" 
-        class="w-40 h-25 mx-auto mb-4 rounded-md"
-    />
-    
+        <img src="{% static 'images/remove-bg.jpeg' %}" alt="Remove BG Icon"
+            class="w-40 h-25 mx-auto mb-4 rounded-md" />
+
         <h1 class="text-4xl font-extrabold text-[#c9302c]">Add Background to Image</h1>
         <p class="text-gray-700 text-lg mt-2">
             Customize your image with solid colors or background images.
@@ -19,7 +16,8 @@
     <form method="POST" enctype="multipart/form-data" class="text-center">
         {% csrf_token %}
         <!-- Upload Image -->
-        <div class="bg-gradient-to-r from-[#ffe6e6] via-[#ffe6cc] to-[#ffcc99] border-dashed border-4 border-[#ff704d] rounded-xl p-8 mb-6 hover:shadow-lg transition">
+        <div
+            class="bg-gradient-to-r from-[#ffe6e6] via-[#ffe6cc] to-[#ffcc99] border-dashed border-4 border-[#ff704d] rounded-xl p-8 mb-6 hover:shadow-lg transition">
             <p class="text-[#c9302c] text-lg font-semibold mb-4">Upload Your Image</p>
             <input type="file" name="image" accept="image/*" required class="block mx-auto mb-4" />
         </div>
